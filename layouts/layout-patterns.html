@@ -57,13 +57,19 @@
       /* Additional inline styles for things Tailwind can't handle */
       .img-placeholder {
         background: var(--color-neutral-2);
-        border: 2px dashed var(--color-neutral-4);
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--color-neutral-5);
         font-size: 0.9em;
         border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .img-placeholder > span:not([class]) {
+        display: none;
       }
       .donut-chart {
         width: 320px;
@@ -5491,6 +5497,14 @@
         display: "flex",
       });
       lucide.createIcons();
+
+      // Assign random Picsum images to placeholders
+      document.querySelectorAll(".img-placeholder").forEach(function (el, i) {
+        var w = el.offsetWidth || 800;
+        var h = el.offsetHeight || 400;
+        el.style.backgroundImage =
+          "url(https://picsum.photos/seed/" + (i + 1) + "/" + w + "/" + h + ")";
+      });
     </script>
   </body>
 </html>
