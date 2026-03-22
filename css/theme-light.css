@@ -78,6 +78,17 @@ body {
   text-align: left;
 }
 
+.reveal .text-white h1,
+.reveal .text-white h2,
+.reveal .text-white h3,
+.reveal .text-white h4,
+.reveal h1.text-white,
+.reveal h2.text-white,
+.reveal h3.text-white,
+.reveal h4.text-white {
+  color: white;
+}
+
 .reveal h1 {
   font-size: 2.8em;
   line-height: 1.15;
