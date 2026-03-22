@@ -145,3 +145,29 @@ After creating the file, confirm:
 - No emoji characters exist in the output
 - No raw Tailwind colors (blue-500, gray-200, etc.) — only the custom color system
 - `lucide.createIcons()` is called after `Reveal.initialize()`
+
+## Step 5: PDF output (optional)
+
+If the user requests PDF output, use DeckTape to convert the slide HTML to PDF.
+
+### Procedure
+
+1. Start a local server in the project root:
+   ```bash
+   npx serve . -l 3000 &
+   ```
+2. Run DeckTape to generate the PDF:
+   ```bash
+   npx decktape reveal \
+     --size 1920x1080 \
+     --pause 1000 \
+     http://localhost:3000/slides/<filename>.html \
+     output/<filename>.pdf
+   ```
+3. Stop the local server after PDF generation.
+
+### Notes
+
+- Create the `output/` directory if it does not exist.
+- DeckTape requires Node.js. If `npx decktape` fails (not installed / network unavailable), inform the user and suggest manual installation.
+- If the user specifies a custom output path, use that instead of `output/`.
