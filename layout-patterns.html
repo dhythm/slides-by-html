@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
   <link rel="stylesheet" href="css/theme-light.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -191,7 +192,7 @@
             <!-- Variant 3: With Icon -->
             <div class="flex flex-col items-center justify-center bg-neutral-1 rounded-2xl p-8 text-center">
               <p class="text-sm text-text-muted mb-4 uppercase tracking-widest">Variant 3: Icon</p>
-              <div class="text-6xl mb-4">📊</div>
+              <div class="mb-4"><i data-lucide="bar-chart-3" class="w-16 h-16 text-primary"></i></div>
               <h3 class="text-4xl font-bold">市場分析</h3>
               <p class="text-text-muted mt-3 text-lg">国内外の市場トレンドと競合環境を分析します</p>
             </div>
@@ -228,29 +229,29 @@
             <div>
               <h4 class="text-xl font-bold mb-4">主要ファインディング</h4>
               <ul class="space-y-3">
-                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>クラウド事業が前年比45%増で最も高い成長率</li>
-                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>エンタープライズ顧客のARPUが20%向上</li>
-                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>新規顧客獲得コストを15%削減に成功</li>
-                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>APAC地域での売上シェアが10%を突破</li>
+                <li class="flex items-start gap-2"><i data-lucide="circle" class="w-2.5 h-2.5 text-primary fill-current flex-shrink-0 mt-1"></i>クラウド事業が前年比45%増で最も高い成長率</li>
+                <li class="flex items-start gap-2"><i data-lucide="circle" class="w-2.5 h-2.5 text-primary fill-current flex-shrink-0 mt-1"></i>エンタープライズ顧客のARPUが20%向上</li>
+                <li class="flex items-start gap-2"><i data-lucide="circle" class="w-2.5 h-2.5 text-primary fill-current flex-shrink-0 mt-1"></i>新規顧客獲得コストを15%削減に成功</li>
+                <li class="flex items-start gap-2"><i data-lucide="circle" class="w-2.5 h-2.5 text-primary fill-current flex-shrink-0 mt-1"></i>APAC地域での売上シェアが10%を突破</li>
               </ul>
             </div>
             <div>
               <h4 class="text-xl font-bold mb-4">成長戦略 3ステップ</h4>
               <div class="flex items-center gap-4">
                 <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
-                  <p class="text-3xl mb-2">🎯</p>
+                  <p class="mb-2"><i data-lucide="target" class="w-8 h-8 text-primary"></i></p>
                   <p class="font-bold text-sm">Step 1</p>
                   <p class="text-sm text-text-muted">基盤強化</p>
                 </div>
                 <span class="text-2xl text-neutral-4">→</span>
                 <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
-                  <p class="text-3xl mb-2">🚀</p>
+                  <p class="mb-2"><i data-lucide="rocket" class="w-8 h-8 text-primary"></i></p>
                   <p class="font-bold text-sm">Step 2</p>
                   <p class="text-sm text-text-muted">市場拡大</p>
                 </div>
                 <span class="text-2xl text-neutral-4">→</span>
                 <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
-                  <p class="text-3xl mb-2">🏆</p>
+                  <p class="mb-2"><i data-lucide="trophy" class="w-8 h-8 text-primary"></i></p>
                   <p class="font-bold text-sm">Step 3</p>
                   <p class="text-sm text-text-muted">収益最大化</p>
                 </div>
@@ -307,7 +308,7 @@
         <div class="slide-body">
           <div class="grid grid-cols-3 gap-8">
             <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
-              <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">☁️</div>
+              <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-6"><i data-lucide="cloud" class="w-8 h-8 text-primary"></i></div>
               <h4 class="text-xl font-bold mb-3">CloudSync Pro</h4>
               <p class="text-text-muted text-sm mb-4">クラウド間のデータ同期を自動化。マルチクラウド環境の一元管理を実現します。</p>
               <ul class="text-left text-sm space-y-2 text-text-muted">
@@ -317,7 +318,7 @@
               </ul>
             </div>
             <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
-              <div class="w-16 h-16 bg-secondary-light rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">📊</div>
+              <div class="w-16 h-16 bg-secondary-light rounded-2xl flex items-center justify-center mx-auto mb-6"><i data-lucide="bar-chart-3" class="w-8 h-8 text-secondary"></i></div>
               <h4 class="text-xl font-bold mb-3">AI Analytics</h4>
               <p class="text-text-muted text-sm mb-4">AIを活用した予測分析プラットフォーム。複雑なデータから実用的なインサイトを導出。</p>
               <ul class="text-left text-sm space-y-2 text-text-muted">
@@ -327,7 +328,7 @@
               </ul>
             </div>
             <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
-              <div class="w-16 h-16 bg-accent-light rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🔐</div>
+              <div class="w-16 h-16 bg-accent-light rounded-2xl flex items-center justify-center mx-auto mb-6"><i data-lucide="shield-check" class="w-8 h-8 text-accent"></i></div>
               <h4 class="text-xl font-bold mb-3">SecureGate</h4>
               <p class="text-text-muted text-sm mb-4">ゼロトラストセキュリティを実現するゲートウェイ。全通信を検証・制御します。</p>
               <ul class="text-left text-sm space-y-2 text-text-muted">
@@ -507,17 +508,17 @@
         <div class="slide-body">
           <div class="grid grid-cols-3 gap-8">
             <div class="text-center p-6">
-              <div class="text-6xl mb-6">⚡</div>
+              <div class="mb-6"><i data-lucide="zap" class="w-16 h-16 text-primary"></i></div>
               <h4 class="text-2xl font-bold mb-4">スピード</h4>
               <p class="text-text-muted leading-relaxed">最短2週間で導入可能。アジャイル開発により、素早いフィードバックループで継続的な改善を実現します。</p>
             </div>
             <div class="text-center p-6">
-              <div class="text-6xl mb-6">🎯</div>
+              <div class="mb-6"><i data-lucide="target" class="w-16 h-16 text-primary"></i></div>
               <h4 class="text-2xl font-bold mb-4">品質</h4>
               <p class="text-text-muted leading-relaxed">厳格なテスト基準と自動化されたQAプロセスにより、エンタープライズグレードの品質を保証します。</p>
             </div>
             <div class="text-center p-6">
-              <div class="text-6xl mb-6">💰</div>
+              <div class="mb-6"><i data-lucide="coins" class="w-16 h-16 text-primary"></i></div>
               <h4 class="text-2xl font-bold mb-4">コスト</h4>
               <p class="text-text-muted leading-relaxed">従量課金モデルで初期投資を抑制。TCOベースで従来比40%のコスト削減を実現します。</p>
             </div>
@@ -573,23 +574,23 @@
         <div class="slide-body">
           <div class="grid grid-cols-2 gap-0 h-full">
             <div class="pr-10 border-r-2 border-neutral-3">
-              <h3 class="text-2xl font-bold text-primary mb-6">☁️ クラウド</h3>
+              <h3 class="text-2xl font-bold text-primary mb-6"><i data-lucide="cloud" class="inline-block w-6 h-6 align-text-bottom mr-1"></i> クラウド</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>初期コストが低く、従量課金で利用可能</li>
-                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>スケーラビリティが高く、需要に応じて即座に拡張</li>
-                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>メンテナンス不要、常に最新バージョンを利用</li>
-                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>リモートワークに適した場所を選ばないアクセス</li>
-                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>災害復旧機能が標準で組み込み</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0"></i>初期コストが低く、従量課金で利用可能</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0"></i>スケーラビリティが高く、需要に応じて即座に拡張</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0"></i>メンテナンス不要、常に最新バージョンを利用</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0"></i>リモートワークに適した場所を選ばないアクセス</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-primary flex-shrink-0"></i>災害復旧機能が標準で組み込み</li>
               </ul>
             </div>
             <div class="pl-10">
-              <h3 class="text-2xl font-bold text-secondary mb-6">🏢 オンプレミス</h3>
+              <h3 class="text-2xl font-bold text-secondary mb-6"><i data-lucide="building-2" class="inline-block w-6 h-6 align-text-bottom mr-1"></i> オンプレミス</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>データの完全なコントロールとカスタマイズ性</li>
-                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>長期的にはTCOが低くなる可能性</li>
-                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>ネットワーク遅延が極めて低い</li>
-                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>厳格なコンプライアンス要件への対応</li>
-                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>外部依存なしの独立した運用が可能</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0"></i>データの完全なコントロールとカスタマイズ性</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0"></i>長期的にはTCOが低くなる可能性</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0"></i>ネットワーク遅延が極めて低い</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0"></i>厳格なコンプライアンス要件への対応</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0"></i>外部依存なしの独立した運用が可能</li>
               </ul>
             </div>
           </div>
@@ -609,11 +610,11 @@
               <p class="text-4xl font-extrabold text-text-strong mb-1">¥9,800</p>
               <p class="text-text-muted text-sm mb-6">/ 月額（税別）</p>
               <ul class="text-left space-y-3 mb-8 text-sm">
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 5名まで</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 10GB</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> メールサポート</li>
-                <li class="flex items-center gap-2"><span class="text-neutral-4">✗</span> API連携</li>
-                <li class="flex items-center gap-2"><span class="text-neutral-4">✗</span> カスタムレポート</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ユーザー数 5名まで</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ストレージ 10GB</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> メールサポート</li>
+                <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-neutral-4 flex-shrink-0"></i> API連携</li>
+                <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-neutral-4 flex-shrink-0"></i> カスタムレポート</li>
               </ul>
               <button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary-light transition">選択する</button>
             </div>
@@ -625,11 +626,11 @@
               <p class="text-4xl font-extrabold text-primary mb-1">¥29,800</p>
               <p class="text-text-muted text-sm mb-6">/ 月額（税別）</p>
               <ul class="text-left space-y-3 mb-8 text-sm">
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 50名まで</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 100GB</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> 優先サポート</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> API連携</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> カスタムレポート</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ユーザー数 50名まで</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ストレージ 100GB</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> 優先サポート</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> API連携</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> カスタムレポート</li>
               </ul>
               <button class="w-full py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition">選択する</button>
             </div>
@@ -640,11 +641,11 @@
               <p class="text-4xl font-extrabold text-text-strong mb-1">要相談</p>
               <p class="text-text-muted text-sm mb-6">カスタムプラン</p>
               <ul class="text-left space-y-3 mb-8 text-sm">
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 無制限</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 無制限</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> 専任サポート</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> API連携 + SSO</li>
-                <li class="flex items-center gap-2"><span class="text-success">✓</span> SLA保証</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ユーザー数 無制限</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> ストレージ 無制限</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> 専任サポート</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> API連携 + SSO</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-success flex-shrink-0"></i> SLA保証</li>
               </ul>
               <button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary-light transition">お問い合わせ</button>
             </div>
@@ -659,23 +660,23 @@
         <div class="slide-body">
           <div class="grid grid-cols-2 gap-10">
             <div class="bg-success-light rounded-2xl p-8 border-2 border-success/30">
-              <h3 class="text-2xl font-bold text-success mb-6">✅ メリット</h3>
+              <h3 class="text-2xl font-bold text-success mb-6"><i data-lucide="circle-check" class="inline-block w-6 h-6 align-text-bottom mr-1"></i> メリット</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>業務効率が平均30%向上する</li>
-                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>ヒューマンエラーを90%削減できる</li>
-                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>リアルタイムなデータ分析が可能になる</li>
-                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>従業員満足度の向上が期待できる</li>
-                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>スケーラブルで将来の拡張が容易</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-success flex-shrink-0"></i>業務効率が平均30%向上する</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-success flex-shrink-0"></i>ヒューマンエラーを90%削減できる</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-success flex-shrink-0"></i>リアルタイムなデータ分析が可能になる</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-success flex-shrink-0"></i>従業員満足度の向上が期待できる</li>
+                <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-success flex-shrink-0"></i>スケーラブルで将来の拡張が容易</li>
               </ul>
             </div>
             <div class="bg-danger-light rounded-2xl p-8 border-2 border-danger/30">
-              <h3 class="text-2xl font-bold text-danger mb-6">⚠️ デメリット</h3>
+              <h3 class="text-2xl font-bold text-danger mb-6"><i data-lucide="alert-triangle" class="inline-block w-6 h-6 align-text-bottom mr-1"></i> デメリット</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>初期導入コストが発生する</li>
-                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>既存業務フローの変更が必要</li>
-                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>社員の教育・トレーニング期間を要する</li>
-                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>移行期間中の一時的な生産性低下</li>
-                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>インターネット環境への依存度が増加</li>
+                <li class="flex items-start gap-3"><i data-lucide="x" class="w-5 h-5 text-danger flex-shrink-0"></i>初期導入コストが発生する</li>
+                <li class="flex items-start gap-3"><i data-lucide="x" class="w-5 h-5 text-danger flex-shrink-0"></i>既存業務フローの変更が必要</li>
+                <li class="flex items-start gap-3"><i data-lucide="x" class="w-5 h-5 text-danger flex-shrink-0"></i>社員の教育・トレーニング期間を要する</li>
+                <li class="flex items-start gap-3"><i data-lucide="x" class="w-5 h-5 text-danger flex-shrink-0"></i>移行期間中の一時的な生産性低下</li>
+                <li class="flex items-start gap-3"><i data-lucide="x" class="w-5 h-5 text-danger flex-shrink-0"></i>インターネット環境への依存度が増加</li>
               </ul>
             </div>
           </div>
@@ -692,10 +693,10 @@
             <div class="bg-danger-light border-2 border-danger/30 rounded-2xl p-8">
               <h3 class="text-2xl font-bold text-danger mb-6">Before</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-danger">●</span>月次レポート作成に3日間を消費</li>
-                <li class="flex items-start gap-3"><span class="text-danger">●</span>データ入力ミスが月平均15件発生</li>
-                <li class="flex items-start gap-3"><span class="text-danger">●</span>承認プロセスに平均5営業日</li>
-                <li class="flex items-start gap-3"><span class="text-danger">●</span>部門間の情報共有にメールを使用</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-danger fill-current flex-shrink-0 mt-1"></i>月次レポート作成に3日間を消費</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-danger fill-current flex-shrink-0 mt-1"></i>データ入力ミスが月平均15件発生</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-danger fill-current flex-shrink-0 mt-1"></i>承認プロセスに平均5営業日</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-danger fill-current flex-shrink-0 mt-1"></i>部門間の情報共有にメールを使用</li>
               </ul>
             </div>
             <!-- Arrow -->
@@ -706,10 +707,10 @@
             <div class="bg-success-light border-2 border-success/30 rounded-2xl p-8">
               <h3 class="text-2xl font-bold text-success mb-6">After</h3>
               <ul class="space-y-4">
-                <li class="flex items-start gap-3"><span class="text-success">●</span>レポートがリアルタイムで自動生成</li>
-                <li class="flex items-start gap-3"><span class="text-success">●</span>バリデーションで入力ミスをゼロに</li>
-                <li class="flex items-start gap-3"><span class="text-success">●</span>ワークフロー自動化で即日承認</li>
-                <li class="flex items-start gap-3"><span class="text-success">●</span>統合ダッシュボードでリアルタイム共有</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-success fill-current flex-shrink-0 mt-1"></i>レポートがリアルタイムで自動生成</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-success fill-current flex-shrink-0 mt-1"></i>バリデーションで入力ミスをゼロに</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-success fill-current flex-shrink-0 mt-1"></i>ワークフロー自動化で即日承認</li>
+                <li class="flex items-start gap-3"><i data-lucide="circle" class="w-2.5 h-2.5 text-success fill-current flex-shrink-0 mt-1"></i>統合ダッシュボードでリアルタイム共有</li>
               </ul>
             </div>
           </div>
@@ -728,22 +729,22 @@
             <div class="text-center text-sm font-bold text-text-muted mb-3">← ニッチ市場 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; マス市場 →</div>
             <div class="grid grid-cols-2 gap-1 flex-1 ml-8">
               <div class="bg-primary-light rounded-tl-2xl p-8 flex flex-col items-center justify-center text-center">
-                <p class="text-3xl mb-3">🎯</p>
+                <p class="mb-3"><i data-lucide="target" class="w-8 h-8"></i></p>
                 <p class="font-bold text-lg">プレミアムニッチ</p>
                 <p class="text-sm text-text-muted mt-2">高品質・専門特化型サービスで差別化</p>
               </div>
               <div class="bg-secondary-light rounded-tr-2xl p-8 flex flex-col items-center justify-center text-center">
-                <p class="text-3xl mb-3">🚀</p>
+                <p class="mb-3"><i data-lucide="rocket" class="w-8 h-8"></i></p>
                 <p class="font-bold text-lg">マーケットリーダー</p>
                 <p class="text-sm text-text-muted mt-2">高品質を大規模に提供（当社の目標）</p>
               </div>
               <div class="bg-neutral-2 rounded-bl-2xl p-8 flex flex-col items-center justify-center text-center">
-                <p class="text-3xl mb-3">🔒</p>
+                <p class="mb-3"><i data-lucide="lock" class="w-8 h-8"></i></p>
                 <p class="font-bold text-lg">限定サービス</p>
                 <p class="text-sm text-text-muted mt-2">特定用途向けの低価格帯サービス</p>
               </div>
               <div class="bg-accent-light rounded-br-2xl p-8 flex flex-col items-center justify-center text-center">
-                <p class="text-3xl mb-3">📦</p>
+                <p class="mb-3"><i data-lucide="package" class="w-8 h-8"></i></p>
                 <p class="font-bold text-lg">コモディティ</p>
                 <p class="text-sm text-text-muted mt-2">汎用品として価格競争が激しい領域</p>
               </div>
@@ -845,7 +846,7 @@
             <!-- 課題 -->
             <div class="bg-danger-light rounded-2xl p-6">
               <div class="text-center mb-4">
-                <div class="text-4xl mb-2">🔍</div>
+                <div class="mb-2"><i data-lucide="search" class="w-10 h-10 text-danger"></i></div>
                 <h4 class="text-xl font-bold text-danger">課題</h4>
               </div>
               <ul class="space-y-3 text-sm">
@@ -858,7 +859,7 @@
             <!-- 原因 -->
             <div class="bg-accent-light rounded-2xl p-6">
               <div class="text-center mb-4">
-                <div class="text-4xl mb-2">⚠️</div>
+                <div class="mb-2"><i data-lucide="alert-triangle" class="w-10 h-10 text-accent"></i></div>
                 <h4 class="text-xl font-bold text-accent">原因</h4>
               </div>
               <ul class="space-y-3 text-sm">
@@ -871,7 +872,7 @@
             <!-- 打ち手 -->
             <div class="bg-success-light rounded-2xl p-6">
               <div class="text-center mb-4">
-                <div class="text-4xl mb-2">💡</div>
+                <div class="mb-2"><i data-lucide="lightbulb" class="w-10 h-10 text-success"></i></div>
                 <h4 class="text-xl font-bold text-success">打ち手</h4>
               </div>
               <ul class="space-y-3 text-sm">
@@ -1080,9 +1081,9 @@
               </div>
               <h4 class="text-lg font-bold mb-3">基盤構築</h4>
               <div class="space-y-2 text-sm">
-                <div class="bg-white rounded-lg p-3 shadow-sm">✅ コアAPI開発</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm">✅ 認証基盤構築</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm">🔄 管理画面MVP</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm"><i data-lucide="circle-check" class="inline-block w-4 h-4 text-success align-text-bottom mr-1"></i> コアAPI開発</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm"><i data-lucide="circle-check" class="inline-block w-4 h-4 text-success align-text-bottom mr-1"></i> 認証基盤構築</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm"><i data-lucide="loader" class="inline-block w-4 h-4 text-primary align-text-bottom mr-1"></i> 管理画面MVP</div>
               </div>
             </div>
             <!-- Phase 2 -->
@@ -1093,9 +1094,9 @@
               </div>
               <h4 class="text-lg font-bold mb-3">機能拡張</h4>
               <div class="space-y-2 text-sm">
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 高度な分析機能</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 外部連携API</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 モバイルアプリ</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> 高度な分析機能</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> 外部連携API</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> モバイルアプリ</div>
               </div>
             </div>
             <!-- Phase 3 -->
@@ -1106,9 +1107,9 @@
               </div>
               <h4 class="text-lg font-bold mb-3">スケール</h4>
               <div class="space-y-2 text-sm">
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 AI予測エンジン</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 マルチリージョン対応</div>
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 エンタープライズSSO</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> AI予測エンジン</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> マルチリージョン対応</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3"><i data-lucide="clipboard-list" class="inline-block w-4 h-4 text-neutral-5 align-text-bottom mr-1"></i> エンタープライズSSO</div>
               </div>
             </div>
           </div>
@@ -1125,19 +1126,19 @@
               <h4 class="text-lg font-bold text-primary mb-4">開発・テスト</h4>
               <div class="space-y-1">
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>単体テスト完了（カバレッジ 95%以上）</span>
                 </div>
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>結合テスト完了・全件パス</span>
                 </div>
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>パフォーマンステスト合格</span>
                 </div>
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>セキュリティスキャン実施済み</span>
                 </div>
                 <div class="checklist-item">
@@ -1150,11 +1151,11 @@
               <h4 class="text-lg font-bold text-primary mb-4">インフラ・運用</h4>
               <div class="space-y-1">
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>本番環境構築完了</span>
                 </div>
                 <div class="checklist-item">
-                  <div class="checklist-check done">✓</div>
+                  <div class="checklist-check done"><i data-lucide="check" class="w-4 h-4"></i></div>
                   <span>データ移行テスト完了</span>
                 </div>
                 <div class="checklist-item">
@@ -1173,7 +1174,7 @@
             </div>
           </div>
           <div class="mt-6 bg-neutral-1 rounded-xl p-4 flex items-center gap-4">
-            <div class="text-2xl">📊</div>
+            <div><i data-lucide="bar-chart-3" class="w-6 h-6 text-primary"></i></div>
             <div>
               <p class="font-bold text-sm">進捗状況: 7/10 完了（70%）</p>
               <div class="w-64 bg-neutral-3 rounded-full h-2 mt-1">
@@ -1529,21 +1530,21 @@
               </tr>
               <tr>
                 <td>API連携</td>
-                <td class="text-neutral-4">✗</td>
-                <td class="highlight text-success">✓</td>
-                <td class="text-success">✓</td>
+                <td class="text-neutral-4"><i data-lucide="x" class="w-4 h-4 inline-block"></i></td>
+                <td class="highlight text-success"><i data-lucide="check" class="w-4 h-4 inline-block"></i></td>
+                <td class="text-success"><i data-lucide="check" class="w-4 h-4 inline-block"></i></td>
               </tr>
               <tr>
                 <td>カスタムレポート</td>
-                <td class="text-neutral-4">✗</td>
-                <td class="highlight text-success">✓</td>
-                <td class="text-success">✓</td>
+                <td class="text-neutral-4"><i data-lucide="x" class="w-4 h-4 inline-block"></i></td>
+                <td class="highlight text-success"><i data-lucide="check" class="w-4 h-4 inline-block"></i></td>
+                <td class="text-success"><i data-lucide="check" class="w-4 h-4 inline-block"></i></td>
               </tr>
               <tr>
                 <td>SSO / SAML</td>
-                <td class="text-neutral-4">✗</td>
-                <td class="highlight text-neutral-4">✗</td>
-                <td class="text-success">✓</td>
+                <td class="text-neutral-4"><i data-lucide="x" class="w-4 h-4 inline-block"></i></td>
+                <td class="highlight text-neutral-4"><i data-lucide="x" class="w-4 h-4 inline-block"></i></td>
+                <td class="text-success"><i data-lucide="check" class="w-4 h-4 inline-block"></i></td>
               </tr>
               <tr>
                 <td>SLA保証</td>
@@ -2148,21 +2149,21 @@
               <p class="text-lg mb-6">500社以上の導入企業からのフィードバックを反映し、直感的で効率的なインターフェースを実現しました。</p>
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center text-xl flex-shrink-0">⚡</div>
+                  <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="zap" class="w-5 h-5 text-primary"></i></div>
                   <div>
                     <p class="font-bold">高速レスポンス</p>
                     <p class="text-text-muted text-sm">平均レスポンスタイム200ms以下を実現</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 bg-secondary-light rounded-lg flex items-center justify-center text-xl flex-shrink-0">🎨</div>
+                  <div class="w-10 h-10 bg-secondary-light rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="palette" class="w-5 h-5 text-secondary"></i></div>
                   <div>
                     <p class="font-bold">カスタマイズ性</p>
                     <p class="text-text-muted text-sm">企業のブランドに合わせたUI調整が可能</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 bg-accent-light rounded-lg flex items-center justify-center text-xl flex-shrink-0">📱</div>
+                  <div class="w-10 h-10 bg-accent-light rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="smartphone" class="w-5 h-5 text-accent"></i></div>
                   <div>
                     <p class="font-bold">マルチデバイス対応</p>
                     <p class="text-text-muted text-sm">PC・タブレット・スマートフォンに最適化</p>
@@ -2214,9 +2215,9 @@
             <h2 class="text-4xl font-extrabold mb-6">デジタル変革で<br>未来を切り拓く</h2>
             <p class="text-lg text-text-muted mb-8">最先端のテクノロジーとデータ駆動型のアプローチで、お客様のビジネスに持続的な成長をもたらします。</p>
             <ul class="space-y-3 text-lg">
-              <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>導入企業500社以上</li>
-              <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>顧客満足度4.8 / 5.0</li>
-              <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>平均ROI 300%以上</li>
+              <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>導入企業500社以上</li>
+              <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>顧客満足度4.8 / 5.0</li>
+              <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>平均ROI 300%以上</li>
             </ul>
           </div>
           <div class="img-placeholder" style="border-radius: 0; border: none; min-height: 100%;">
@@ -2234,10 +2235,10 @@
               <h2>新プロダクトの特徴</h2>
               <p class="text-lg mb-6">直感的なUIと高度なAI機能を兼ね備えた次世代プラットフォーム。あらゆるビジネスニーズに対応する柔軟性を実現しました。</p>
               <ul class="space-y-3">
-                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>ノーコードで複雑なワークフローを構築</li>
-                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>AIによるリアルタイム異常検知</li>
-                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>200以上の外部サービスと連携</li>
-                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>エンタープライズグレードのセキュリティ</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>ノーコードで複雑なワークフローを構築</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>AIによるリアルタイム異常検知</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>200以上の外部サービスと連携</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-primary flex-shrink-0"></i>エンタープライズグレードのセキュリティ</li>
               </ul>
             </div>
             <div class="img-placeholder h-full min-h-[400px]">
@@ -2319,25 +2320,25 @@
         <div class="slide-body">
           <div class="grid grid-cols-4 gap-8">
             <div class="text-center">
-              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👨‍💼</div>
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="user" class="w-14 h-14 text-neutral-5"></i></div>
               <h4 class="text-xl font-bold">田中 太郎</h4>
               <p class="text-primary font-bold text-sm mb-2">代表取締役CEO</p>
               <p class="text-text-muted text-sm">元大手コンサルティング会社パートナー。20年以上のテクノロジー業界経験。</p>
             </div>
             <div class="text-center">
-              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👩‍💻</div>
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="user" class="w-14 h-14 text-neutral-5"></i></div>
               <h4 class="text-xl font-bold">鈴木 花子</h4>
               <p class="text-primary font-bold text-sm mb-2">取締役CTO</p>
               <p class="text-text-muted text-sm">GoogleでSr. Engineerとして10年間従事。分散システムの専門家。</p>
             </div>
             <div class="text-center">
-              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👨‍💼</div>
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="user" class="w-14 h-14 text-neutral-5"></i></div>
               <h4 class="text-xl font-bold">佐藤 健一</h4>
               <p class="text-primary font-bold text-sm mb-2">取締役CFO</p>
               <p class="text-text-muted text-sm">投資銀行での15年の経験。IPO支援・M&Aアドバイザリーの実績多数。</p>
             </div>
             <div class="text-center">
-              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👩‍💼</div>
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="user" class="w-14 h-14 text-neutral-5"></i></div>
               <h4 class="text-xl font-bold">山田 美咲</h4>
               <p class="text-primary font-bold text-sm mb-2">執行役員COO</p>
               <p class="text-text-muted text-sm">SaaS企業での事業立ち上げ経験。組織開発とオペレーション改善の専門家。</p>
@@ -2449,12 +2450,12 @@
         <div class="slide-body">
           <div class="grid grid-cols-2 gap-8">
             <div class="bg-neutral-1 rounded-2xl p-8">
-              <div class="text-accent mb-3">★★★★★</div>
+              <div class="text-accent mb-3"><span class="flex gap-0.5"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></span></div>
               <blockquote class="!bg-transparent !border-none !p-0 !shadow-none !text-base !rounded-none">
                 <p>「導入後、営業チームの生産性が40%向上しました。特にAI機能による顧客分析は、アップセルの成功率を大幅に改善してくれました。」</p>
               </blockquote>
               <div class="flex items-center gap-4 mt-6">
-                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center text-2xl">👨</div>
+                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-7 h-7 text-neutral-5"></i></div>
                 <div>
                   <p class="font-bold">中村 誠</p>
                   <p class="text-sm text-text-muted">株式会社テクノソリューションズ</p>
@@ -2463,12 +2464,12 @@
               </div>
             </div>
             <div class="bg-neutral-1 rounded-2xl p-8">
-              <div class="text-accent mb-3">★★★★★</div>
+              <div class="text-accent mb-3"><span class="flex gap-0.5"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></span></div>
               <blockquote class="!bg-transparent !border-none !p-0 !shadow-none !text-base !rounded-none">
                 <p>「データの一元管理により、部門間のサイロを完全に解消できました。経営判断のスピードが格段に上がり、競合に対する優位性を確立できています。」</p>
               </blockquote>
               <div class="flex items-center gap-4 mt-6">
-                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center text-2xl">👩</div>
+                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center"><i data-lucide="user" class="w-7 h-7 text-neutral-5"></i></div>
                 <div>
                   <p class="font-bold">高橋 由美</p>
                   <p class="text-sm text-text-muted">グローバル商事株式会社</p>
@@ -2586,9 +2587,9 @@
             <button class="border-2 border-primary text-primary font-bold px-10 py-4 rounded-xl text-lg hover:bg-primary-light transition">資料ダウンロード</button>
           </div>
           <div class="text-text-muted text-sm space-y-1">
-            <p>📧 contact@example.com</p>
-            <p>📞 03-1234-5678</p>
-            <p>🌐 https://example.com</p>
+            <p><i data-lucide="mail" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> contact@example.com</p>
+            <p><i data-lucide="phone" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> 03-1234-5678</p>
+            <p><i data-lucide="globe" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> https://example.com</p>
           </div>
         </div>
       </section>
@@ -2601,9 +2602,9 @@
           <p class="text-2xl text-text-muted mb-8">ご清聴ありがとうございました</p>
           <div class="w-16 h-1 bg-primary mb-8"></div>
           <div class="text-text-muted space-y-2">
-            <p>📧 contact@example.com</p>
-            <p>🌐 https://example.com</p>
-            <p>📞 03-1234-5678</p>
+            <p><i data-lucide="mail" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> contact@example.com</p>
+            <p><i data-lucide="globe" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> https://example.com</p>
+            <p><i data-lucide="phone" class="inline-block w-4 h-4 align-text-bottom mr-1"></i> 03-1234-5678</p>
           </div>
         </div>
       </section>
@@ -2621,28 +2622,28 @@
               </div>
               <div class="space-y-3">
                 <div class="flex items-center gap-4">
-                  <span class="text-xl">📍</span>
+                  <span><i data-lucide="map-pin" class="w-5 h-5"></i></span>
                   <div>
                     <p class="font-bold text-sm">住所</p>
                     <p class="text-text-muted">〒150-0001 東京都渋谷区神宮前1-2-3 テックビル10F</p>
                   </div>
                 </div>
                 <div class="flex items-center gap-4">
-                  <span class="text-xl">📞</span>
+                  <span><i data-lucide="phone" class="w-5 h-5"></i></span>
                   <div>
                     <p class="font-bold text-sm">電話番号</p>
                     <p class="text-text-muted">03-1234-5678（平日 9:00-18:00）</p>
                   </div>
                 </div>
                 <div class="flex items-center gap-4">
-                  <span class="text-xl">📧</span>
+                  <span><i data-lucide="mail" class="w-5 h-5"></i></span>
                   <div>
                     <p class="font-bold text-sm">メール</p>
                     <p class="text-text-muted">contact@example.com</p>
                   </div>
                 </div>
                 <div class="flex items-center gap-4">
-                  <span class="text-xl">🌐</span>
+                  <span><i data-lucide="globe" class="w-5 h-5"></i></span>
                   <div>
                     <p class="font-bold text-sm">ウェブサイト</p>
                     <p class="text-text-muted">https://example.com</p>
@@ -2655,10 +2656,10 @@
                 <span>QRコード</span>
               </div>
               <div class="flex gap-6">
-                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">𝕏</div>
-                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">in</div>
-                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">📘</div>
-                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">▶</div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center"><i data-lucide="twitter" class="w-5 h-5"></i></div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center"><i data-lucide="linkedin" class="w-5 h-5"></i></div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center"><i data-lucide="facebook" class="w-5 h-5"></i></div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center"><i data-lucide="youtube" class="w-5 h-5"></i></div>
               </div>
             </div>
           </div>
@@ -2772,17 +2773,17 @@
           <!-- Cards -->
           <div class="grid grid-cols-3 gap-6 mb-8">
             <div class="bg-white border border-neutral-3 rounded-2xl p-6 shadow-sm">
-              <div class="text-3xl mb-3">📊</div>
+              <div class="mb-3"><i data-lucide="bar-chart-3" class="w-8 h-8"></i></div>
               <h4 class="font-bold text-lg mb-2">Basic Card</h4>
               <p class="text-text-muted text-sm">シンプルなカードコンポーネント。アイコン、タイトル、説明文の組み合わせ。</p>
             </div>
             <div class="bg-white border-2 border-primary rounded-2xl p-6 shadow-md ring-4 ring-primary/10">
-              <div class="text-3xl mb-3">⭐</div>
+              <div class="mb-3"><i data-lucide="star" class="w-8 h-8 text-primary"></i></div>
               <h4 class="font-bold text-lg text-primary mb-2">Highlighted Card</h4>
               <p class="text-text-muted text-sm">強調されたカード。おすすめプランや重要な項目に使用します。</p>
             </div>
             <div class="bg-gray-800 rounded-2xl p-6 text-white">
-              <div class="text-3xl mb-3">🔒</div>
+              <div class="mb-3"><i data-lucide="lock" class="w-8 h-8"></i></div>
               <h4 class="font-bold text-lg mb-2 text-white">Dark Card</h4>
               <p class="text-sm opacity-80">ダークカード。プレミアム感やコントラストを出したい場合に。</p>
             </div>
@@ -2829,6 +2830,8 @@
       slideNumber: true,
       controls: true,
       progress: true,
+    }).then(() => {
+      lucide.createIcons();
     });
   </script>
 </body>
