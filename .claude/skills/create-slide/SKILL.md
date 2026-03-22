@@ -89,11 +89,11 @@ Every slide deck MUST use this exact boilerplate:
       width: 1920,
       height: 1080,
       margin: 0,
-      center: false,
       hash: true,
       slideNumber: true,
       controls: true,
       progress: true,
+      display: "flex",
     });
     lucide.createIcons();
   </script>
@@ -128,7 +128,7 @@ Each `<section>` represents one slide. Follow these conventions:
 10. **Light mode**: All slides use light mode (white background). No dark backgrounds except for specific design elements like gradient hero slides.
 11. **No `!important`**: NEVER use `!important` in CSS. Solve specificity issues by using more specific selectors instead.
 12. **Vertical centering**: Slide content below the h2 title is vertically centered via `.slide-body` (which has `flex: 1; justify-content: center`). The h2 stays at the top. Always wrap main content in `<div class="slide-body">`.
-13. **Reveal.js config**: Always set `center: false` in `Reveal.initialize()` — vertical centering is handled by CSS, not by Reveal.js.
+13. **Reveal.js config**: Always set `display: "flex"` in `Reveal.initialize()` — this ensures the section's CSS `display: flex` is not overridden by Reveal.js, enabling `.slide-body` vertical centering. Do NOT set `center: false`.
 
 ### Typical slide deck structure
 

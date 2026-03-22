@@ -1,5 +1,9 @@
 # See https://hp.github.m/articles/ignoring-files/ for more about ignoring files.
 
+# Directories
 /tmp/
 /tasks/
 /output/
+
+# Files
+.DS_Store
