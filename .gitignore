@@ -1,3 +1,4 @@
 # See https://hp.github.m/articles/ignoring-files/ for more about ignoring files.
 
+/tmp/
 /tasks/
