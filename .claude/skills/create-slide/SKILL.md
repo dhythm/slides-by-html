@@ -124,6 +124,9 @@ Each `<section>` represents one slide. Follow these conventions:
 8. **Inline styles**: Only use `style=""` for things Tailwind cannot express (e.g., `grid-template-columns: 6fr 4fr`, `conic-gradient`, specific `height` values for chart bars).
 9. **File location**: Save to `slides/` directory. Create the directory if it doesn't exist.
 10. **Light mode**: All slides use light mode (white background). No dark backgrounds except for specific design elements like gradient hero slides.
+11. **No `!important`**: NEVER use `!important` in CSS. Solve specificity issues by using more specific selectors instead.
+12. **Vertical centering**: Slide content below the h2 title is vertically centered via `.slide-body` (which has `flex: 1; justify-content: center`). The h2 stays at the top. Always wrap main content in `<div class="slide-body">`.
+13. **Reveal.js config**: Always set `center: false` in `Reveal.initialize()` — vertical centering is handled by CSS, not by Reveal.js.
 
 ### Typical slide deck structure
 
