@@ -31,6 +31,15 @@
   --color-warning-light: #FEF3C7;
 }
 
+/* --- Slide boundary: dark background outside slides --- */
+body {
+  background: #1a1a2e;
+}
+
+.reveal .slide-background-content {
+  background: var(--color-white);
+}
+
 /* --- Reveal.js Base Overrides --- */
 .reveal {
   font-family: "Inter", "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
@@ -40,6 +49,7 @@
 
 .reveal .slides {
   text-align: left;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
 .reveal .slides section {
