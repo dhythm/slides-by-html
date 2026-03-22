@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Slide Layout Patterns</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+  <link rel="stylesheet" href="css/theme-light.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: 'var(--color-primary)', light: 'var(--color-primary-light)', dark: 'var(--color-primary-dark)' },
+            secondary: { DEFAULT: 'var(--color-secondary)', light: 'var(--color-secondary-light)' },
+            accent: { DEFAULT: 'var(--color-accent)', light: 'var(--color-accent-light)' },
+            'text-strong': 'var(--color-text-strong)',
+            'text-base': 'var(--color-text)',
+            'text-muted': 'var(--color-text-muted)',
+            'neutral-1': 'var(--color-neutral-1)',
+            'neutral-2': 'var(--color-neutral-2)',
+            'neutral-3': 'var(--color-neutral-3)',
+            'neutral-4': 'var(--color-neutral-4)',
+            'neutral-5': 'var(--color-neutral-5)',
+            success: { DEFAULT: 'var(--color-success)', light: 'var(--color-success-light)' },
+            danger: { DEFAULT: 'var(--color-danger)', light: 'var(--color-danger-light)' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Additional inline styles for things Tailwind can't handle */
+    .img-placeholder {
+      background: var(--color-neutral-2);
+      border: 2px dashed var(--color-neutral-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-neutral-5);
+      font-size: 0.9em;
+      border-radius: 12px;
+    }
+    .donut-chart {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--color-primary) 0deg 126deg,
+        var(--color-secondary) 126deg 216deg,
+        var(--color-accent) 216deg 288deg,
+        var(--color-success) 288deg 331deg,
+        var(--color-neutral-4) 331deg 360deg
+      );
+      position: relative;
+    }
+    .donut-chart::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: white;
+    }
+    .funnel-stage {
+      transition: all 0.3s ease;
+    }
+    .sparkline {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================================
+           A. 構成・導入系
+           ============================================================ -->
+
+      <!-- Slide 1: 表紙 (Cover) -->
+      <section>
+        <div class="slide-label"><span class="category">構成・導入系</span> / 表紙</div>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h1 class="text-6xl font-bold mb-4">プレゼンテーションタイトル</h1>
+          <p class="text-2xl text-text-muted mb-8">サブタイトル ― プロジェクトの概要説明</p>
+          <div class="w-20 h-1 bg-primary mb-8"></div>
+          <p class="text-xl text-text-muted">株式会社サンプル &nbsp;|&nbsp; 2026年3月22日</p>
+        </div>
+      </section>
+
+      <!-- Slide 2: ヒーロー表紙 (Hero Cover) -->
+      <section data-background-gradient="linear-gradient(135deg, var(--color-primary), var(--color-secondary))">
+        <div class="slide-label"><span class="category" style="color:rgba(255,255,255,0.6);">構成・導入系</span> <span style="color:rgba(255,255,255,0.4);">/ ヒーロー表紙</span></div>
+        <div class="flex flex-col items-center justify-center h-full text-center text-white">
+          <h1 class="text-7xl font-extrabold mb-4 text-white">事業変革の全体像</h1>
+          <p class="text-2xl mb-16 opacity-80 text-white">デジタルトランスフォーメーション 2026年度戦略</p>
+          <div class="grid grid-cols-3 gap-8 w-full max-w-[900px]">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <p class="text-5xl font-extrabold text-primary">120%</p>
+              <p class="text-base text-text-muted mt-2">売上成長率</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <p class="text-5xl font-extrabold text-primary">+45%</p>
+              <p class="text-base text-text-muted mt-2">生産性向上</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <p class="text-5xl font-extrabold text-primary">98.5</p>
+              <p class="text-base text-text-muted mt-2">顧客満足度</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: アジェンダ (Agenda) -->
+      <section>
+        <div class="slide-label"><span class="category">構成・導入系</span> / アジェンダ</div>
+        <h2>アジェンダ</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-x-12 gap-y-8">
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">事業概要</h4>
+                <p class="text-text-muted text-base">会社のビジョンと現在の事業ポートフォリオ</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">市場分析</h4>
+                <p class="text-text-muted text-base">国内外の市場動向とトレンド分析</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">ソリューション</h4>
+                <p class="text-text-muted text-base">課題解決のための製品・サービス戦略</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">収益モデル</h4>
+                <p class="text-text-muted text-base">マネタイズ戦略と収支計画</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">5</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">ロードマップ</h4>
+                <p class="text-text-muted text-base">段階的な実行計画とマイルストーン</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">6</div>
+              <div>
+                <h4 class="text-xl font-bold mb-1">まとめ</h4>
+                <p class="text-text-muted text-base">重要ポイントの整理とネクストステップ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: セクション扉 (Section Divider) - 3 variants -->
+      <section>
+        <div class="slide-label"><span class="category">構成・導入系</span> / セクション扉</div>
+        <h2>セクション扉バリエーション</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-8 h-full">
+            <!-- Variant 1: Basic -->
+            <div class="flex flex-col items-center justify-center bg-neutral-1 rounded-2xl p-8 text-center">
+              <p class="text-sm text-text-muted mb-4 uppercase tracking-widest">Variant 1: Basic</p>
+              <h3 class="text-4xl font-bold">市場分析</h3>
+            </div>
+            <!-- Variant 2: Numbered -->
+            <div class="flex flex-col items-center justify-center bg-neutral-1 rounded-2xl p-8 text-center">
+              <p class="text-sm text-text-muted mb-4 uppercase tracking-widest">Variant 2: Numbered</p>
+              <p class="section-number">01</p>
+              <h3 class="text-4xl font-bold mt-2">市場分析</h3>
+            </div>
+            <!-- Variant 3: With Icon -->
+            <div class="flex flex-col items-center justify-center bg-neutral-1 rounded-2xl p-8 text-center">
+              <p class="text-sm text-text-muted mb-4 uppercase tracking-widest">Variant 3: Icon</p>
+              <div class="text-6xl mb-4">📊</div>
+              <h3 class="text-4xl font-bold">市場分析</h3>
+              <p class="text-text-muted mt-3 text-lg">国内外の市場トレンドと競合環境を分析します</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: エグゼクティブサマリー (Executive Summary) -->
+      <section>
+        <div class="slide-label"><span class="category">構成・導入系</span> / エグゼクティブサマリー</div>
+        <h2>エグゼクティブサマリー</h2>
+        <div class="slide-body">
+          <!-- KPI Row -->
+          <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="bg-neutral-1 rounded-xl p-6 text-center">
+              <p class="text-4xl font-extrabold text-primary">¥24.8億</p>
+              <p class="text-text-muted mt-1">売上高</p>
+            </div>
+            <div class="bg-neutral-1 rounded-xl p-6 text-center">
+              <p class="text-4xl font-extrabold text-primary">+32%</p>
+              <p class="text-text-muted mt-1">成長率</p>
+            </div>
+            <div class="bg-neutral-1 rounded-xl p-6 text-center">
+              <p class="text-4xl font-extrabold text-primary">1,250</p>
+              <p class="text-text-muted mt-1">顧客数</p>
+            </div>
+            <div class="bg-neutral-1 rounded-xl p-6 text-center">
+              <p class="text-4xl font-extrabold text-primary">72</p>
+              <p class="text-text-muted mt-1">NPS</p>
+            </div>
+          </div>
+          <!-- Bottom 2-col -->
+          <div class="grid grid-cols-2 gap-10 flex-1">
+            <div>
+              <h4 class="text-xl font-bold mb-4">主要ファインディング</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>クラウド事業が前年比45%増で最も高い成長率</li>
+                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>エンタープライズ顧客のARPUが20%向上</li>
+                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>新規顧客獲得コストを15%削減に成功</li>
+                <li class="flex items-start gap-2"><span class="text-primary font-bold">●</span>APAC地域での売上シェアが10%を突破</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-4">成長戦略 3ステップ</h4>
+              <div class="flex items-center gap-4">
+                <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
+                  <p class="text-3xl mb-2">🎯</p>
+                  <p class="font-bold text-sm">Step 1</p>
+                  <p class="text-sm text-text-muted">基盤強化</p>
+                </div>
+                <span class="text-2xl text-neutral-4">→</span>
+                <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
+                  <p class="text-3xl mb-2">🚀</p>
+                  <p class="font-bold text-sm">Step 2</p>
+                  <p class="text-sm text-text-muted">市場拡大</p>
+                </div>
+                <span class="text-2xl text-neutral-4">→</span>
+                <div class="bg-primary-light rounded-xl p-5 flex-1 text-center">
+                  <p class="text-3xl mb-2">🏆</p>
+                  <p class="font-bold text-sm">Step 3</p>
+                  <p class="text-sm text-text-muted">収益最大化</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: 1メッセージ (Single Message) -->
+      <section>
+        <div class="slide-label"><span class="category">構成・導入系</span> / 1メッセージ</div>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <p class="text-6xl font-extrabold leading-tight mb-6 text-text-strong">顧客体験を、再定義する。</p>
+          <div class="w-16 h-1 bg-primary mb-6"></div>
+          <p class="text-xl text-text-muted max-w-[700px]">テクノロジーの力で、すべてのタッチポイントを最適化し、<br>新しい価値を創造します。</p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           B. 基本文字レイアウト
+           ============================================================ -->
+
+      <!-- Slide 7: タイトル + 本文 (Title + Body) -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / タイトル + 本文</div>
+        <h2>プロジェクト概要</h2>
+        <div class="slide-body">
+          <p class="text-lg mb-6">本プロジェクトは、既存の業務プロセスをデジタル化し、組織全体の生産性を向上させることを目的としています。段階的なアプローチにより、リスクを最小化しながら確実な成果を実現します。</p>
+          <ul class="space-y-3 text-lg">
+            <li>プロジェクト期間：2026年4月〜2027年3月（12ヶ月間）</li>
+            <li>対象部門：営業部、マーケティング部、カスタマーサポート部</li>
+            <li>想定効果：業務効率30%向上、コスト年間2,000万円削減</li>
+            <li>投資金額：初期費用5,000万円、ランニング月額200万円</li>
+            <li>主要マイルストーン：要件定義（6月）、開発完了（12月）、全社展開（3月）</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 8: 2カラム均等 (2 Column Equal) -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / 2カラム均等</div>
+        <h2>現状と課題</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-10">
+            <div>
+              <h4 class="text-xl font-bold mb-4 text-primary">現状の業務フロー</h4>
+              <ul class="space-y-3">
+                <li>顧客データが複数システムに分散</li>
+                <li>手動入力による転記作業が多発</li>
+                <li>リアルタイムでの状況把握が困難</li>
+                <li>部門間の情報連携に時間がかかる</li>
+                <li>レポート作成に毎月20時間を消費</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-4 text-primary">解決すべき課題</h4>
+              <ul class="space-y-3">
+                <li>データの一元管理と統合基盤の構築</li>
+                <li>自動化による手作業の削減</li>
+                <li>ダッシュボードによる可視化の実現</li>
+                <li>APIベースのシステム連携の確立</li>
+                <li>セルフサービス型レポーティングの導入</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: 2カラム 6:4 -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / 2カラム 6:4</div>
+        <h2>ソリューション概要</h2>
+        <div class="slide-body">
+          <div class="grid gap-10" style="grid-template-columns: 6fr 4fr;">
+            <div>
+              <p class="text-lg mb-6">当社のクラウドプラットフォームは、エンタープライズ向けに最適化された統合ソリューションを提供します。AIを活用した予測分析機能により、データドリブンな意思決定を可能にします。</p>
+              <ul class="space-y-3 text-lg">
+                <li>マイクロサービスアーキテクチャによる柔軟な拡張性</li>
+                <li>99.99%のSLA保証と24/365サポート体制</li>
+                <li>ISO 27001認証取得済みのセキュリティ基盤</li>
+                <li>既存システムとのシームレスな連携が可能</li>
+              </ul>
+            </div>
+            <div class="bg-neutral-1 rounded-xl p-8">
+              <h4 class="text-lg font-bold mb-4">導入実績</h4>
+              <div class="space-y-4">
+                <div>
+                  <p class="font-bold text-2xl text-primary">500+</p>
+                  <p class="text-text-muted text-sm">導入企業数</p>
+                </div>
+                <div>
+                  <p class="font-bold text-2xl text-primary">99.99%</p>
+                  <p class="text-text-muted text-sm">稼働率</p>
+                </div>
+                <div>
+                  <p class="font-bold text-2xl text-primary">4.8 / 5.0</p>
+                  <p class="text-text-muted text-sm">顧客満足度</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: 3カラム (3 Column) -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / 3カラム</div>
+        <h2>私たちの強み</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-8">
+            <div class="text-center p-6">
+              <div class="text-6xl mb-6">⚡</div>
+              <h4 class="text-2xl font-bold mb-4">スピード</h4>
+              <p class="text-text-muted leading-relaxed">最短2週間で導入可能。アジャイル開発により、素早いフィードバックループで継続的な改善を実現します。</p>
+            </div>
+            <div class="text-center p-6">
+              <div class="text-6xl mb-6">🎯</div>
+              <h4 class="text-2xl font-bold mb-4">品質</h4>
+              <p class="text-text-muted leading-relaxed">厳格なテスト基準と自動化されたQAプロセスにより、エンタープライズグレードの品質を保証します。</p>
+            </div>
+            <div class="text-center p-6">
+              <div class="text-6xl mb-6">💰</div>
+              <h4 class="text-2xl font-bold mb-4">コスト</h4>
+              <p class="text-text-muted leading-relaxed">従量課金モデルで初期投資を抑制。TCOベースで従来比40%のコスト削減を実現します。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11: 引用・強調メッセージ (Quote) -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / 引用・強調メッセージ</div>
+        <div class="flex flex-col items-center justify-center h-full">
+          <blockquote class="max-w-[1200px] text-center text-3xl !text-2xl !leading-relaxed">
+            <p>イノベーションとは、リーダーとフォロワーを区別するものだ。</p>
+          </blockquote>
+          <cite class="mt-6 text-xl text-text-muted not-italic">― スティーブ・ジョブズ</cite>
+        </div>
+      </section>
+
+      <!-- Slide 12: FAQ -->
+      <section>
+        <div class="slide-label"><span class="category">基本文字レイアウト</span> / FAQ</div>
+        <h2>よくある質問</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-x-12 gap-y-2">
+            <div class="border-b border-neutral-3 pb-4 mb-2">
+              <p class="text-primary font-bold text-lg mb-2">Q. 導入にはどのくらいの期間がかかりますか？</p>
+              <p class="text-text-muted">A. 標準的なプランであれば約2〜4週間で導入完了します。カスタマイズが必要な場合は、要件に応じて別途お見積りいたします。</p>
+            </div>
+            <div class="border-b border-neutral-3 pb-4 mb-2">
+              <p class="text-primary font-bold text-lg mb-2">Q. 既存システムとの連携は可能ですか？</p>
+              <p class="text-text-muted">A. REST APIおよびWebhookを標準提供しており、主要なSaaS製品との連携実績があります。</p>
+            </div>
+            <div class="border-b border-neutral-3 pb-4 mb-2">
+              <p class="text-primary font-bold text-lg mb-2">Q. セキュリティ対策はどうなっていますか？</p>
+              <p class="text-text-muted">A. ISO 27001認証取得済み。データは暗号化され、SOC2 Type II準拠のインフラで運用しています。</p>
+            </div>
+            <div class="border-b border-neutral-3 pb-4 mb-2">
+              <p class="text-primary font-bold text-lg mb-2">Q. サポート体制について教えてください。</p>
+              <p class="text-text-muted">A. 24/365の日本語サポートを提供。専任のカスタマーサクセス担当が導入から運用まで伴走します。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           C. 比較・整理系
+           ============================================================ -->
+
+      <!-- Slide 13: 左右比較 (Side-by-side Comparison) -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / 左右比較</div>
+        <h2>クラウド vs オンプレミス</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-0 h-full">
+            <div class="pr-10 border-r-2 border-neutral-3">
+              <h3 class="text-2xl font-bold text-primary mb-6">☁️ クラウド</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>初期コストが低く、従量課金で利用可能</li>
+                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>スケーラビリティが高く、需要に応じて即座に拡張</li>
+                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>メンテナンス不要、常に最新バージョンを利用</li>
+                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>リモートワークに適した場所を選ばないアクセス</li>
+                <li class="flex items-start gap-3"><span class="text-primary font-bold text-xl">✓</span>災害復旧機能が標準で組み込み</li>
+              </ul>
+            </div>
+            <div class="pl-10">
+              <h3 class="text-2xl font-bold text-secondary mb-6">🏢 オンプレミス</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>データの完全なコントロールとカスタマイズ性</li>
+                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>長期的にはTCOが低くなる可能性</li>
+                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>ネットワーク遅延が極めて低い</li>
+                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>厳格なコンプライアンス要件への対応</li>
+                <li class="flex items-start gap-3"><span class="text-secondary font-bold text-xl">✓</span>外部依存なしの独立した運用が可能</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 14: 3案比較 (Pricing) -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / 3案比較</div>
+        <h2>料金プラン</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-6 items-start">
+            <!-- Starter -->
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <h4 class="text-xl font-bold mb-2">Starter</h4>
+              <p class="text-text-muted text-sm mb-4">個人・小規模チーム向け</p>
+              <p class="text-4xl font-extrabold text-text-strong mb-1">¥9,800</p>
+              <p class="text-text-muted text-sm mb-6">/ 月額（税別）</p>
+              <ul class="text-left space-y-3 mb-8 text-sm">
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 5名まで</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 10GB</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> メールサポート</li>
+                <li class="flex items-center gap-2"><span class="text-neutral-4">✗</span> API連携</li>
+                <li class="flex items-center gap-2"><span class="text-neutral-4">✗</span> カスタムレポート</li>
+              </ul>
+              <button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary-light transition">選択する</button>
+            </div>
+            <!-- Professional (Highlighted) -->
+            <div class="bg-white border-2 border-primary rounded-2xl p-8 text-center ring-4 ring-primary/20 relative -mt-4 mb-[-16px]">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">人気</div>
+              <h4 class="text-xl font-bold mb-2">Professional</h4>
+              <p class="text-text-muted text-sm mb-4">成長企業向け</p>
+              <p class="text-4xl font-extrabold text-primary mb-1">¥29,800</p>
+              <p class="text-text-muted text-sm mb-6">/ 月額（税別）</p>
+              <ul class="text-left space-y-3 mb-8 text-sm">
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 50名まで</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 100GB</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> 優先サポート</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> API連携</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> カスタムレポート</li>
+              </ul>
+              <button class="w-full py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition">選択する</button>
+            </div>
+            <!-- Enterprise -->
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <h4 class="text-xl font-bold mb-2">Enterprise</h4>
+              <p class="text-text-muted text-sm mb-4">大企業向け</p>
+              <p class="text-4xl font-extrabold text-text-strong mb-1">要相談</p>
+              <p class="text-text-muted text-sm mb-6">カスタムプラン</p>
+              <ul class="text-left space-y-3 mb-8 text-sm">
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ユーザー数 無制限</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> ストレージ 無制限</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> 専任サポート</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> API連携 + SSO</li>
+                <li class="flex items-center gap-2"><span class="text-success">✓</span> SLA保証</li>
+              </ul>
+              <button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary-light transition">お問い合わせ</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 15: Pros / Cons -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / Pros / Cons</div>
+        <h2>導入のメリット・デメリット</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-10">
+            <div class="bg-success-light rounded-2xl p-8 border-2 border-success/30">
+              <h3 class="text-2xl font-bold text-success mb-6">✅ メリット</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>業務効率が平均30%向上する</li>
+                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>ヒューマンエラーを90%削減できる</li>
+                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>リアルタイムなデータ分析が可能になる</li>
+                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>従業員満足度の向上が期待できる</li>
+                <li class="flex items-start gap-3"><span class="text-success font-bold text-xl">✓</span>スケーラブルで将来の拡張が容易</li>
+              </ul>
+            </div>
+            <div class="bg-danger-light rounded-2xl p-8 border-2 border-danger/30">
+              <h3 class="text-2xl font-bold text-danger mb-6">⚠️ デメリット</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>初期導入コストが発生する</li>
+                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>既存業務フローの変更が必要</li>
+                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>社員の教育・トレーニング期間を要する</li>
+                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>移行期間中の一時的な生産性低下</li>
+                <li class="flex items-start gap-3"><span class="text-danger font-bold text-xl">✗</span>インターネット環境への依存度が増加</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 16: Before / After -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / Before / After</div>
+        <h2>業務改善効果</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-6 items-center">
+            <!-- Before -->
+            <div class="bg-danger-light border-2 border-danger/30 rounded-2xl p-8">
+              <h3 class="text-2xl font-bold text-danger mb-6">Before</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-danger">●</span>月次レポート作成に3日間を消費</li>
+                <li class="flex items-start gap-3"><span class="text-danger">●</span>データ入力ミスが月平均15件発生</li>
+                <li class="flex items-start gap-3"><span class="text-danger">●</span>承認プロセスに平均5営業日</li>
+                <li class="flex items-start gap-3"><span class="text-danger">●</span>部門間の情報共有にメールを使用</li>
+              </ul>
+            </div>
+            <!-- Arrow -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="text-5xl text-primary font-bold">→</div>
+            </div>
+            <!-- After -->
+            <div class="bg-success-light border-2 border-success/30 rounded-2xl p-8">
+              <h3 class="text-2xl font-bold text-success mb-6">After</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3"><span class="text-success">●</span>レポートがリアルタイムで自動生成</li>
+                <li class="flex items-start gap-3"><span class="text-success">●</span>バリデーションで入力ミスをゼロに</li>
+                <li class="flex items-start gap-3"><span class="text-success">●</span>ワークフロー自動化で即日承認</li>
+                <li class="flex items-start gap-3"><span class="text-success">●</span>統合ダッシュボードでリアルタイム共有</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 17: 2x2 マトリクス (Matrix) -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / 2x2 マトリクス</div>
+        <h2>市場ポジショニング</h2>
+        <div class="slide-body">
+          <div class="relative flex-1 flex flex-col">
+            <!-- Y Axis Label -->
+            <div class="absolute -left-2 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-bold text-text-muted whitespace-nowrap">高付加価値 ←→ 低付加価値</div>
+            <!-- X Axis Label -->
+            <div class="text-center text-sm font-bold text-text-muted mb-3">← ニッチ市場 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; マス市場 →</div>
+            <div class="grid grid-cols-2 gap-1 flex-1 ml-8">
+              <div class="bg-primary-light rounded-tl-2xl p-8 flex flex-col items-center justify-center text-center">
+                <p class="text-3xl mb-3">🎯</p>
+                <p class="font-bold text-lg">プレミアムニッチ</p>
+                <p class="text-sm text-text-muted mt-2">高品質・専門特化型サービスで差別化</p>
+              </div>
+              <div class="bg-secondary-light rounded-tr-2xl p-8 flex flex-col items-center justify-center text-center">
+                <p class="text-3xl mb-3">🚀</p>
+                <p class="font-bold text-lg">マーケットリーダー</p>
+                <p class="text-sm text-text-muted mt-2">高品質を大規模に提供（当社の目標）</p>
+              </div>
+              <div class="bg-neutral-2 rounded-bl-2xl p-8 flex flex-col items-center justify-center text-center">
+                <p class="text-3xl mb-3">🔒</p>
+                <p class="font-bold text-lg">限定サービス</p>
+                <p class="text-sm text-text-muted mt-2">特定用途向けの低価格帯サービス</p>
+              </div>
+              <div class="bg-accent-light rounded-br-2xl p-8 flex flex-col items-center justify-center text-center">
+                <p class="text-3xl mb-3">📦</p>
+                <p class="font-bold text-lg">コモディティ</p>
+                <p class="text-sm text-text-muted mt-2">汎用品として価格競争が激しい領域</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 18: SWOT -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / SWOT</div>
+        <h2>SWOT分析</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-4 flex-1">
+            <!-- Strengths -->
+            <div class="bg-primary-light rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-primary mb-4">S — 強み</h3>
+              <ul class="space-y-2 text-base">
+                <li>• 独自のAI技術と特許ポートフォリオ</li>
+                <li>• 業界トップクラスの技術者集団</li>
+                <li>• 既存顧客の高いリテンション率（95%）</li>
+                <li>• 強固な財務基盤と安定したキャッシュフロー</li>
+              </ul>
+            </div>
+            <!-- Weaknesses -->
+            <div class="bg-danger-light rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-danger mb-4">W — 弱み</h3>
+              <ul class="space-y-2 text-base">
+                <li>• グローバル展開の遅れ</li>
+                <li>• ブランド認知度が競合に劣る</li>
+                <li>• 営業組織の規模が不十分</li>
+                <li>• レガシーシステムの技術的負債</li>
+              </ul>
+            </div>
+            <!-- Opportunities -->
+            <div class="bg-success-light rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-success mb-4">O — 機会</h3>
+              <ul class="space-y-2 text-base">
+                <li>• DX需要の急速な拡大（年率25%成長）</li>
+                <li>• 新興市場（東南アジア）の開拓余地</li>
+                <li>• パートナーエコシステムの拡充</li>
+                <li>• 規制変更による新規需要の創出</li>
+              </ul>
+            </div>
+            <!-- Threats -->
+            <div class="bg-accent-light rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-accent mb-4">T — 脅威</h3>
+              <ul class="space-y-2 text-base">
+                <li>• 大手テック企業の市場参入</li>
+                <li>• 技術人材の獲得競争の激化</li>
+                <li>• 景気後退によるIT投資の抑制</li>
+                <li>• サイバーセキュリティリスクの増大</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 19: 課題→原因→打ち手 (Problem-Cause-Solution) -->
+      <section>
+        <div class="slide-label"><span class="category">比較・整理系</span> / 課題→原因→打ち手</div>
+        <h2>課題分析と解決策</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-start">
+            <!-- 課題 -->
+            <div class="bg-danger-light rounded-2xl p-6">
+              <div class="text-center mb-4">
+                <div class="text-4xl mb-2">🔍</div>
+                <h4 class="text-xl font-bold text-danger">課題</h4>
+              </div>
+              <ul class="space-y-3 text-sm">
+                <li>• 売上成長率が前年比で鈍化</li>
+                <li>• 顧客離脱率が12%に上昇</li>
+                <li>• 新規顧客獲得コストの増加</li>
+              </ul>
+            </div>
+            <div class="flex items-center text-4xl text-neutral-4 font-bold pt-20">→</div>
+            <!-- 原因 -->
+            <div class="bg-accent-light rounded-2xl p-6">
+              <div class="text-center mb-4">
+                <div class="text-4xl mb-2">⚠️</div>
+                <h4 class="text-xl font-bold text-accent">原因</h4>
+              </div>
+              <ul class="space-y-3 text-sm">
+                <li>• 製品のUXが競合に劣後</li>
+                <li>• カスタマーサポートの対応遅延</li>
+                <li>• マーケティング施策の効果低下</li>
+              </ul>
+            </div>
+            <div class="flex items-center text-4xl text-neutral-4 font-bold pt-20">→</div>
+            <!-- 打ち手 -->
+            <div class="bg-success-light rounded-2xl p-6">
+              <div class="text-center mb-4">
+                <div class="text-4xl mb-2">💡</div>
+                <h4 class="text-xl font-bold text-success">打ち手</h4>
+              </div>
+              <ul class="space-y-3 text-sm">
+                <li>• UXリサーチに基づくUI刷新</li>
+                <li>• AIチャットボットの導入</li>
+                <li>• データドリブンマーケティング</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           D. 流れ・時間軸系
+           ============================================================ -->
+
+      <!-- Slide 20: ステップ型 横 (Horizontal Steps) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / ステップ型 横</div>
+        <h2>導入プロセス</h2>
+        <div class="slide-body">
+          <div class="flex items-start justify-between relative mt-8">
+            <!-- Connector line -->
+            <div class="absolute top-7 left-[10%] right-[10%] h-1 bg-neutral-3 z-0"></div>
+            <div class="flex flex-col items-center text-center relative z-10 flex-1 px-4">
+              <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
+              <h4 class="font-bold text-lg mb-2">ヒアリング</h4>
+              <p class="text-sm text-text-muted">現状の課題と要件を<br>詳細にヒアリング</p>
+            </div>
+            <div class="flex flex-col items-center text-center relative z-10 flex-1 px-4">
+              <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
+              <h4 class="font-bold text-lg mb-2">提案</h4>
+              <p class="text-sm text-text-muted">最適なソリューションと<br>導入計画を提示</p>
+            </div>
+            <div class="flex flex-col items-center text-center relative z-10 flex-1 px-4">
+              <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
+              <h4 class="font-bold text-lg mb-2">構築</h4>
+              <p class="text-sm text-text-muted">システム構築と<br>データ移行を実施</p>
+            </div>
+            <div class="flex flex-col items-center text-center relative z-10 flex-1 px-4">
+              <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">4</div>
+              <h4 class="font-bold text-lg mb-2">テスト</h4>
+              <p class="text-sm text-text-muted">受入テストと<br>ユーザートレーニング</p>
+            </div>
+            <div class="flex flex-col items-center text-center relative z-10 flex-1 px-4">
+              <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">5</div>
+              <h4 class="font-bold text-lg mb-2">運用開始</h4>
+              <p class="text-sm text-text-muted">本番稼働と<br>継続的なサポート</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 21: ステップ型 縦 (Vertical Steps) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / ステップ型 縦</div>
+        <h2>申請フロー</h2>
+        <div class="slide-body">
+          <div class="relative pl-16 space-y-8 mt-4">
+            <!-- Vertical line -->
+            <div class="absolute left-7 top-0 bottom-0 w-1 bg-neutral-3"></div>
+
+            <div class="relative flex items-start gap-6">
+              <div class="absolute -left-9 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold z-10">1</div>
+              <div class="ml-8">
+                <h4 class="text-xl font-bold">申請書の作成</h4>
+                <p class="text-text-muted">オンラインフォームから必要事項を入力し、添付資料をアップロードします。</p>
+              </div>
+            </div>
+
+            <div class="relative flex items-start gap-6">
+              <div class="absolute -left-9 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold z-10">2</div>
+              <div class="ml-8">
+                <h4 class="text-xl font-bold">上長承認</h4>
+                <p class="text-text-muted">直属の上長に承認依頼が自動送信されます。承認・差戻し・却下の操作が可能です。</p>
+              </div>
+            </div>
+
+            <div class="relative flex items-start gap-6">
+              <div class="absolute -left-9 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold z-10">3</div>
+              <div class="ml-8">
+                <h4 class="text-xl font-bold">部門長承認</h4>
+                <p class="text-text-muted">金額が一定以上の場合、部門長の追加承認が必要となります。</p>
+              </div>
+            </div>
+
+            <div class="relative flex items-start gap-6">
+              <div class="absolute -left-9 w-12 h-12 bg-success text-white rounded-full flex items-center justify-center text-xl font-bold z-10">4</div>
+              <div class="ml-8">
+                <h4 class="text-xl font-bold">処理完了</h4>
+                <p class="text-text-muted">承認後、経理部門で処理が実行され、申請者に完了通知が届きます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 22: プロセスフロー シェブロン (Chevron Process) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / シェブロン</div>
+        <h2>開発プロセス</h2>
+        <div class="slide-body">
+          <div class="flex gap-1 mt-8">
+            <div class="chevron-item flex-1 py-8 px-10 text-center text-white font-bold text-lg" style="background: var(--color-primary); opacity: 0.6;">
+              <p class="text-xl font-bold">要件定義</p>
+              <p class="text-sm mt-2 opacity-80">2週間</p>
+            </div>
+            <div class="chevron-item flex-1 py-8 px-10 text-center text-white font-bold text-lg" style="background: var(--color-primary); opacity: 0.7;">
+              <p class="text-xl font-bold">設計</p>
+              <p class="text-sm mt-2 opacity-80">3週間</p>
+            </div>
+            <div class="chevron-item flex-1 py-8 px-10 text-center text-white font-bold text-lg" style="background: var(--color-primary); opacity: 0.8;">
+              <p class="text-xl font-bold">開発</p>
+              <p class="text-sm mt-2 opacity-80">8週間</p>
+            </div>
+            <div class="chevron-item flex-1 py-8 px-10 text-center text-white font-bold text-lg" style="background: var(--color-primary); opacity: 0.9;">
+              <p class="text-xl font-bold">テスト</p>
+              <p class="text-sm mt-2 opacity-80">3週間</p>
+            </div>
+            <div class="chevron-item flex-1 py-8 px-10 text-center text-white font-bold text-lg" style="background: var(--color-primary); opacity: 1;">
+              <p class="text-xl font-bold">リリース</p>
+              <p class="text-sm mt-2 opacity-80">1週間</p>
+            </div>
+          </div>
+          <div class="mt-8 grid grid-cols-5 gap-4 text-sm text-text-muted">
+            <div class="text-center">ステークホルダーインタビュー<br>要件書作成</div>
+            <div class="text-center">アーキテクチャ設計<br>UI/UXデザイン</div>
+            <div class="text-center">スプリント開発<br>コードレビュー</div>
+            <div class="text-center">単体・結合テスト<br>UAT実施</div>
+            <div class="text-center">本番デプロイ<br>監視・運用開始</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 23: 横タイムライン (Horizontal Timeline) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / 横タイムライン</div>
+        <h2>2024年 主要マイルストーン</h2>
+        <div class="slide-body">
+          <div class="timeline-h mt-12">
+            <div class="timeline-h-item">
+              <h4 class="font-bold text-lg text-primary mb-2">Q1</h4>
+              <p class="text-sm text-text-muted">新プラットフォーム<br>ベータ版リリース</p>
+            </div>
+            <div class="timeline-h-item">
+              <h4 class="font-bold text-lg text-primary mb-2">Q2</h4>
+              <p class="text-sm text-text-muted">大型パートナーシップ<br>3社と締結</p>
+            </div>
+            <div class="timeline-h-item">
+              <h4 class="font-bold text-lg text-primary mb-2">Q3</h4>
+              <p class="text-sm text-text-muted">シリーズB資金調達<br>30億円完了</p>
+            </div>
+            <div class="timeline-h-item">
+              <h4 class="font-bold text-lg text-primary mb-2">Q4</h4>
+              <p class="text-sm text-text-muted">海外展開開始<br>シンガポール拠点設立</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 24: 縦タイムライン (Vertical Timeline) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / 縦タイムライン</div>
+        <h2>沿革</h2>
+        <div class="slide-body">
+          <div class="timeline-v mt-4">
+            <div class="timeline-v-item">
+              <h4 class="font-bold text-lg">2019年 — 創業</h4>
+              <p class="text-text-muted">東京都渋谷区にて創業。AI技術を活用したSaaSプロダクトの開発を開始。</p>
+            </div>
+            <div class="timeline-v-item">
+              <h4 class="font-bold text-lg">2020年 — プロダクトローンチ</h4>
+              <p class="text-text-muted">初期プロダクトをリリース。シード資金5億円を調達し、開発チームを20名に拡大。</p>
+            </div>
+            <div class="timeline-v-item">
+              <h4 class="font-bold text-lg">2021年 — 急成長フェーズ</h4>
+              <p class="text-text-muted">導入企業100社突破。シリーズAで15億円の資金調達を実施。</p>
+            </div>
+            <div class="timeline-v-item">
+              <h4 class="font-bold text-lg">2023年 — 市場拡大</h4>
+              <p class="text-text-muted">導入企業500社突破。大阪オフィスを開設し、西日本エリアの営業を強化。</p>
+            </div>
+            <div class="timeline-v-item">
+              <h4 class="font-bold text-lg">2024年 — グローバル展開</h4>
+              <p class="text-text-muted">シンガポール拠点を設立。従業員数200名を突破し、IPO準備を開始。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 25: ロードマップ (Roadmap) -->
+      <section>
+        <div class="slide-label"><span class="category">流れ・時間軸系</span> / ロードマップ</div>
+        <h2>プロダクトロードマップ</h2>
+        <div class="slide-body">
+          <!-- Progress bar -->
+          <div class="w-full bg-neutral-2 rounded-full h-3 mb-8">
+            <div class="bg-primary h-3 rounded-full" style="width: 35%;"></div>
+          </div>
+          <div class="grid grid-cols-3 gap-6 flex-1">
+            <!-- Phase 1 -->
+            <div class="bg-primary-light rounded-2xl p-6 border-2 border-primary/20">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Phase 1</span>
+                <span class="text-sm text-text-muted">2026 Q1-Q2</span>
+              </div>
+              <h4 class="text-lg font-bold mb-3">基盤構築</h4>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white rounded-lg p-3 shadow-sm">✅ コアAPI開発</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm">✅ 認証基盤構築</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm">🔄 管理画面MVP</div>
+              </div>
+            </div>
+            <!-- Phase 2 -->
+            <div class="bg-neutral-1 rounded-2xl p-6 border-2 border-neutral-3">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-neutral-5 text-white text-xs font-bold px-3 py-1 rounded-full">Phase 2</span>
+                <span class="text-sm text-text-muted">2026 Q3-Q4</span>
+              </div>
+              <h4 class="text-lg font-bold mb-3">機能拡張</h4>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 高度な分析機能</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 外部連携API</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 モバイルアプリ</div>
+              </div>
+            </div>
+            <!-- Phase 3 -->
+            <div class="bg-neutral-1 rounded-2xl p-6 border-2 border-neutral-3">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-neutral-5 text-white text-xs font-bold px-3 py-1 rounded-full">Phase 3</span>
+                <span class="text-sm text-text-muted">2027 Q1-Q2</span>
+              </div>
+              <h4 class="text-lg font-bold mb-3">スケール</h4>
+              <div class="space-y-2 text-sm">
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 AI予測エンジン</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 マルチリージョン対応</div>
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-neutral-3">📋 エンタープライズSSO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           E. データ・分析系
+           ============================================================ -->
+
+      <!-- Slide 26: KPIダッシュボード (KPI Dashboard) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / KPIダッシュボード</div>
+        <h2>主要業績指標</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-4 gap-6">
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <p class="text-text-muted text-sm mb-2">月間売上</p>
+              <p class="text-5xl font-extrabold text-text-strong">¥2.4億</p>
+              <p class="text-success font-bold mt-3">▲ +12.5%</p>
+              <p class="text-xs text-text-muted">前月比</p>
+            </div>
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <p class="text-text-muted text-sm mb-2">アクティブユーザー</p>
+              <p class="text-5xl font-extrabold text-text-strong">48.2K</p>
+              <p class="text-success font-bold mt-3">▲ +8.3%</p>
+              <p class="text-xs text-text-muted">前月比</p>
+            </div>
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <p class="text-text-muted text-sm mb-2">コンバージョン率</p>
+              <p class="text-5xl font-extrabold text-text-strong">3.2%</p>
+              <p class="text-danger font-bold mt-3">▼ -0.4%</p>
+              <p class="text-xs text-text-muted">前月比</p>
+            </div>
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8 text-center">
+              <p class="text-text-muted text-sm mb-2">顧客満足度</p>
+              <p class="text-5xl font-extrabold text-text-strong">4.6</p>
+              <p class="text-success font-bold mt-3">▲ +0.2</p>
+              <p class="text-xs text-text-muted">前月比</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 27: 棒グラフ 縦 (Vertical Bar Chart) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / 棒グラフ 縦</div>
+        <h2>四半期売上推移</h2>
+        <div class="slide-body">
+          <div class="flex items-end justify-center gap-6 flex-1 pb-4">
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">1.8億</span>
+              <div class="w-20 bg-primary/60 rounded-t-lg" style="height: 180px;"></div>
+              <span class="text-xs text-text-muted">Q1<br>2024</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">2.1億</span>
+              <div class="w-20 bg-primary/60 rounded-t-lg" style="height: 210px;"></div>
+              <span class="text-xs text-text-muted">Q2<br>2024</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">2.4億</span>
+              <div class="w-20 bg-primary/60 rounded-t-lg" style="height: 240px;"></div>
+              <span class="text-xs text-text-muted">Q3<br>2024</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">2.8億</span>
+              <div class="w-20 bg-primary/60 rounded-t-lg" style="height: 280px;"></div>
+              <span class="text-xs text-text-muted">Q4<br>2024</span>
+            </div>
+            <div class="w-4"></div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">2.6億</span>
+              <div class="w-20 bg-primary rounded-t-lg" style="height: 260px;"></div>
+              <span class="text-xs text-text-muted">Q1<br>2025</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">3.0億</span>
+              <div class="w-20 bg-primary rounded-t-lg" style="height: 300px;"></div>
+              <span class="text-xs text-text-muted">Q2<br>2025</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">3.3億</span>
+              <div class="w-20 bg-primary rounded-t-lg" style="height: 330px;"></div>
+              <span class="text-xs text-text-muted">Q3<br>2025</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-sm font-bold">3.8億</span>
+              <div class="w-20 bg-primary rounded-t-lg" style="height: 380px;"></div>
+              <span class="text-xs text-text-muted">Q4<br>2025</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 justify-center mt-2">
+            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-primary/60 rounded"></div><span class="text-sm text-text-muted">2024年</span></div>
+            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-primary rounded"></div><span class="text-sm text-text-muted">2025年</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 28: 棒グラフ 横 (Horizontal Bar Chart) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / 棒グラフ 横</div>
+        <h2>部門別予算配分</h2>
+        <div class="slide-body">
+          <div class="space-y-6 mt-4">
+            <div class="flex items-center gap-4">
+              <span class="w-40 text-right font-bold">開発部門</span>
+              <div class="flex-1 bg-neutral-2 rounded-full h-10 overflow-hidden">
+                <div class="bg-primary h-full rounded-full flex items-center justify-end pr-4" style="width: 75%;">
+                  <span class="text-white text-sm font-bold">¥3.75億 (37.5%)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-40 text-right font-bold">営業部門</span>
+              <div class="flex-1 bg-neutral-2 rounded-full h-10 overflow-hidden">
+                <div class="bg-primary/80 h-full rounded-full flex items-center justify-end pr-4" style="width: 55%;">
+                  <span class="text-white text-sm font-bold">¥2.75億 (27.5%)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-40 text-right font-bold">マーケティング</span>
+              <div class="flex-1 bg-neutral-2 rounded-full h-10 overflow-hidden">
+                <div class="bg-primary/65 h-full rounded-full flex items-center justify-end pr-4" style="width: 40%;">
+                  <span class="text-white text-sm font-bold">¥2.0億 (20%)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-40 text-right font-bold">管理部門</span>
+              <div class="flex-1 bg-neutral-2 rounded-full h-10 overflow-hidden">
+                <div class="bg-primary/50 h-full rounded-full flex items-center justify-end pr-4" style="width: 20%;">
+                  <span class="text-white text-sm font-bold">¥1.0億 (10%)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-40 text-right font-bold">人事部門</span>
+              <div class="flex-1 bg-neutral-2 rounded-full h-10 overflow-hidden">
+                <div class="bg-primary/40 h-full rounded-full flex items-center justify-end pr-4" style="width: 10%;">
+                  <span class="text-white text-sm font-bold">¥0.5億 (5%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 29: 折れ線/エリアチャート (Line Chart - SVG) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / 折れ線チャート</div>
+        <h2>月次売上トレンド</h2>
+        <div class="slide-body">
+          <div class="flex-1 flex items-center justify-center">
+            <svg viewBox="0 0 800 400" class="w-full max-w-[1400px]" style="overflow: visible;">
+              <!-- Grid lines -->
+              <line x1="60" y1="50" x2="60" y2="350" stroke="var(--color-neutral-3)" stroke-width="1"/>
+              <line x1="60" y1="350" x2="780" y2="350" stroke="var(--color-neutral-3)" stroke-width="1"/>
+              <line x1="60" y1="275" x2="780" y2="275" stroke="var(--color-neutral-3)" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="60" y1="200" x2="780" y2="200" stroke="var(--color-neutral-3)" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="60" y1="125" x2="780" y2="125" stroke="var(--color-neutral-3)" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="60" y1="50" x2="780" y2="50" stroke="var(--color-neutral-3)" stroke-width="0.5" stroke-dasharray="4"/>
+              <!-- Y axis labels -->
+              <text x="50" y="355" text-anchor="end" fill="var(--color-text-muted)" font-size="11">0</text>
+              <text x="50" y="280" text-anchor="end" fill="var(--color-text-muted)" font-size="11">1億</text>
+              <text x="50" y="205" text-anchor="end" fill="var(--color-text-muted)" font-size="11">2億</text>
+              <text x="50" y="130" text-anchor="end" fill="var(--color-text-muted)" font-size="11">3億</text>
+              <text x="50" y="55" text-anchor="end" fill="var(--color-text-muted)" font-size="11">4億</text>
+              <!-- X axis labels -->
+              <text x="120" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">1月</text>
+              <text x="180" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">2月</text>
+              <text x="240" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">3月</text>
+              <text x="300" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">4月</text>
+              <text x="360" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">5月</text>
+              <text x="420" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">6月</text>
+              <text x="480" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">7月</text>
+              <text x="540" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">8月</text>
+              <text x="600" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">9月</text>
+              <text x="660" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">10月</text>
+              <text x="720" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">11月</text>
+              <text x="780" y="375" text-anchor="middle" fill="var(--color-text-muted)" font-size="11">12月</text>
+              <!-- Target line (dashed) -->
+              <polyline points="120,238 180,230 240,222 300,215 360,207 420,200 480,192 540,185 600,177 660,170 720,162 780,155"
+                fill="none" stroke="var(--color-neutral-4)" stroke-width="2.5" stroke-dasharray="8,4"/>
+              <!-- Actual line -->
+              <polyline points="120,260 180,245 240,220 300,235 360,210 420,190 480,180 540,195 600,165 660,150 720,135 780,120"
+                fill="none" stroke="var(--color-primary)" stroke-width="3"/>
+              <!-- Dots on actual line -->
+              <circle cx="120" cy="260" r="4" fill="var(--color-primary)"/>
+              <circle cx="180" cy="245" r="4" fill="var(--color-primary)"/>
+              <circle cx="240" cy="220" r="4" fill="var(--color-primary)"/>
+              <circle cx="300" cy="235" r="4" fill="var(--color-primary)"/>
+              <circle cx="360" cy="210" r="4" fill="var(--color-primary)"/>
+              <circle cx="420" cy="190" r="4" fill="var(--color-primary)"/>
+              <circle cx="480" cy="180" r="4" fill="var(--color-primary)"/>
+              <circle cx="540" cy="195" r="4" fill="var(--color-primary)"/>
+              <circle cx="600" cy="165" r="4" fill="var(--color-primary)"/>
+              <circle cx="660" cy="150" r="4" fill="var(--color-primary)"/>
+              <circle cx="720" cy="135" r="4" fill="var(--color-primary)"/>
+              <circle cx="780" cy="120" r="4" fill="var(--color-primary)"/>
+            </svg>
+          </div>
+          <div class="flex items-center gap-8 justify-center">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-1 bg-primary rounded"></div>
+              <span class="text-sm text-text-muted">実績</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-1 bg-neutral-4 rounded" style="border-top: 2px dashed var(--color-neutral-4);"></div>
+              <span class="text-sm text-text-muted">目標</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 30: 円グラフ/ドーナツ (Donut Chart) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / ドーナツチャート</div>
+        <h2>売上構成比</h2>
+        <div class="slide-body">
+          <div class="flex items-center justify-center gap-20 flex-1">
+            <!-- Donut -->
+            <div class="donut-chart flex-shrink-0"></div>
+            <!-- Legend -->
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-5 h-5 rounded-full bg-primary flex-shrink-0"></div>
+                <div>
+                  <p class="font-bold">SaaSサブスクリプション</p>
+                  <p class="text-text-muted text-sm">35% — ¥8.4億</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-5 h-5 rounded-full bg-secondary flex-shrink-0"></div>
+                <div>
+                  <p class="font-bold">コンサルティング</p>
+                  <p class="text-text-muted text-sm">25% — ¥6.0億</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-5 h-5 rounded-full bg-accent flex-shrink-0"></div>
+                <div>
+                  <p class="font-bold">ライセンス販売</p>
+                  <p class="text-text-muted text-sm">20% — ¥4.8億</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-5 h-5 rounded-full bg-success flex-shrink-0"></div>
+                <div>
+                  <p class="font-bold">保守・運用</p>
+                  <p class="text-text-muted text-sm">12% — ¥2.9億</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-5 h-5 rounded-full bg-neutral-4 flex-shrink-0"></div>
+                <div>
+                  <p class="font-bold">その他</p>
+                  <p class="text-text-muted text-sm">8% — ¥1.9億</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 31: シンプル表 (Simple Table) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / シンプル表</div>
+        <h2>製品ラインナップ</h2>
+        <div class="slide-body">
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>製品名</th>
+                <th>カテゴリ</th>
+                <th>対象ユーザー</th>
+                <th>月額料金</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold">CloudSync Pro</td>
+                <td>クラウド連携</td>
+                <td>中〜大企業</td>
+                <td>¥50,000〜</td>
+                <td><span class="text-success font-bold">提供中</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">DataVault</td>
+                <td>データ管理</td>
+                <td>全規模</td>
+                <td>¥30,000〜</td>
+                <td><span class="text-success font-bold">提供中</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">AI Analytics</td>
+                <td>分析・BI</td>
+                <td>中〜大企業</td>
+                <td>¥80,000〜</td>
+                <td><span class="text-success font-bold">提供中</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">SecureGate</td>
+                <td>セキュリティ</td>
+                <td>大企業</td>
+                <td>¥120,000〜</td>
+                <td><span class="text-primary font-bold">ベータ版</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">WorkflowX</td>
+                <td>業務自動化</td>
+                <td>全規模</td>
+                <td>¥25,000〜</td>
+                <td><span class="text-accent font-bold">開発中</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Slide 32: 比較表 強調付き (Comparison Table with Highlight) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / 比較表 強調付き</div>
+        <h2>プラン機能比較</h2>
+        <div class="slide-body">
+          <table class="highlight-col">
+            <thead>
+              <tr>
+                <th>機能</th>
+                <th>Basic</th>
+                <th class="highlight">Pro</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ユーザー数</td>
+                <td>5名まで</td>
+                <td class="highlight">50名まで</td>
+                <td>無制限</td>
+              </tr>
+              <tr>
+                <td>ストレージ</td>
+                <td>10GB</td>
+                <td class="highlight">100GB</td>
+                <td>無制限</td>
+              </tr>
+              <tr>
+                <td>API連携</td>
+                <td class="text-neutral-4">✗</td>
+                <td class="highlight text-success">✓</td>
+                <td class="text-success">✓</td>
+              </tr>
+              <tr>
+                <td>カスタムレポート</td>
+                <td class="text-neutral-4">✗</td>
+                <td class="highlight text-success">✓</td>
+                <td class="text-success">✓</td>
+              </tr>
+              <tr>
+                <td>SSO / SAML</td>
+                <td class="text-neutral-4">✗</td>
+                <td class="highlight text-neutral-4">✗</td>
+                <td class="text-success">✓</td>
+              </tr>
+              <tr>
+                <td>SLA保証</td>
+                <td>99.9%</td>
+                <td class="highlight">99.95%</td>
+                <td>99.99%</td>
+              </tr>
+              <tr>
+                <td>サポート</td>
+                <td>メール</td>
+                <td class="highlight">優先チャット</td>
+                <td>専任担当</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Slide 33: ファネル (Funnel) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / ファネル</div>
+        <h2>営業パイプライン</h2>
+        <div class="slide-body">
+          <div class="flex flex-col items-center gap-2 flex-1 justify-center">
+            <div class="funnel-stage flex items-center justify-center text-white font-bold rounded-lg py-5" style="width: 90%; background: var(--color-primary); opacity: 0.5;">
+              <div class="flex items-center gap-6">
+                <span class="text-2xl">認知</span>
+                <span class="text-xl">10,000件</span>
+                <span class="text-sm opacity-80">100%</span>
+              </div>
+            </div>
+            <div class="funnel-stage flex items-center justify-center text-white font-bold rounded-lg py-5" style="width: 72%; background: var(--color-primary); opacity: 0.6;">
+              <div class="flex items-center gap-6">
+                <span class="text-2xl">興味</span>
+                <span class="text-xl">4,500件</span>
+                <span class="text-sm opacity-80">45%</span>
+              </div>
+            </div>
+            <div class="funnel-stage flex items-center justify-center text-white font-bold rounded-lg py-5" style="width: 54%; background: var(--color-primary); opacity: 0.7;">
+              <div class="flex items-center gap-6">
+                <span class="text-2xl">検討</span>
+                <span class="text-xl">1,800件</span>
+                <span class="text-sm opacity-80">18%</span>
+              </div>
+            </div>
+            <div class="funnel-stage flex items-center justify-center text-white font-bold rounded-lg py-5" style="width: 36%; background: var(--color-primary); opacity: 0.85;">
+              <div class="flex items-center gap-6">
+                <span class="text-2xl">商談</span>
+                <span class="text-xl">720件</span>
+                <span class="text-sm opacity-80">7.2%</span>
+              </div>
+            </div>
+            <div class="funnel-stage flex items-center justify-center text-white font-bold rounded-lg py-5" style="width: 20%; background: var(--color-primary); opacity: 1;">
+              <div class="flex items-center gap-6">
+                <span class="text-2xl">成約</span>
+                <span class="text-xl">250件</span>
+                <span class="text-sm opacity-80">2.5%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 34: ウォーターフォール (Waterfall Chart) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / ウォーターフォール</div>
+        <h2>収益構造分析</h2>
+        <div class="slide-body">
+          <div class="flex items-end justify-center gap-4 flex-1 pb-4 relative">
+            <!-- Base line -->
+            <div class="absolute bottom-[54px] left-[5%] right-[5%] h-[1px] bg-neutral-3"></div>
+            <!-- 売上 (starting value) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold">¥24.0億</span>
+              <div class="w-full max-w-[100px] bg-primary rounded-t-lg" style="height: 300px;"></div>
+              <span class="text-xs text-text-muted text-center">売上高</span>
+            </div>
+            <!-- 原価 (decrease) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold text-danger">-¥9.6億</span>
+              <div class="flex flex-col items-center">
+                <div class="w-full max-w-[100px] bg-transparent" style="height: 180px;"></div>
+                <div class="w-full max-w-[100px] bg-danger rounded-t-lg" style="height: 120px;"></div>
+              </div>
+              <span class="text-xs text-text-muted text-center">原価</span>
+            </div>
+            <!-- 粗利 (subtotal) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold">¥14.4億</span>
+              <div class="w-full max-w-[100px] bg-primary/70 rounded-t-lg" style="height: 180px;"></div>
+              <span class="text-xs text-text-muted text-center">粗利益</span>
+            </div>
+            <!-- 販管費 (decrease) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold text-danger">-¥8.4億</span>
+              <div class="flex flex-col items-center">
+                <div class="w-full max-w-[100px] bg-transparent" style="height: 75px;"></div>
+                <div class="w-full max-w-[100px] bg-danger rounded-t-lg" style="height: 105px;"></div>
+              </div>
+              <span class="text-xs text-text-muted text-center">販管費</span>
+            </div>
+            <!-- 営業利益 -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold">¥6.0億</span>
+              <div class="w-full max-w-[100px] bg-primary/70 rounded-t-lg" style="height: 75px;"></div>
+              <span class="text-xs text-text-muted text-center">営業利益</span>
+            </div>
+            <!-- 営業外収益 (increase) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold text-success">+¥0.8億</span>
+              <div class="flex flex-col items-center">
+                <div class="w-full max-w-[100px] bg-transparent" style="height: 65px;"></div>
+                <div class="w-full max-w-[100px] bg-success rounded-t-lg" style="height: 10px;"></div>
+              </div>
+              <span class="text-xs text-text-muted text-center">営業外<br>収益</span>
+            </div>
+            <!-- 純利益 (final) -->
+            <div class="flex flex-col items-center gap-2 flex-1">
+              <span class="text-sm font-bold">¥6.8億</span>
+              <div class="w-full max-w-[100px] bg-primary rounded-t-lg" style="height: 85px;"></div>
+              <span class="text-xs text-text-muted text-center">純利益</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 35: KPI + トレンド (KPI with Trend) -->
+      <section>
+        <div class="slide-label"><span class="category">データ・分析系</span> / KPI + トレンド</div>
+        <h2>月次パフォーマンス</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-8">
+            <!-- KPI 1 -->
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8">
+              <p class="text-text-muted text-sm mb-1">月間アクティブユーザー</p>
+              <p class="text-4xl font-extrabold text-text-strong">48,200</p>
+              <p class="text-success font-bold mt-1">▲ +8.3%</p>
+              <div class="mt-4">
+                <svg viewBox="0 0 200 60" class="w-full">
+                  <polyline points="0,50 30,45 60,40 90,42 120,35 150,30 180,22 200,18" class="sparkline" stroke="var(--color-success)"/>
+                </svg>
+              </div>
+            </div>
+            <!-- KPI 2 -->
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8">
+              <p class="text-text-muted text-sm mb-1">平均セッション時間</p>
+              <p class="text-4xl font-extrabold text-text-strong">12:34</p>
+              <p class="text-danger font-bold mt-1">▼ -2.1%</p>
+              <div class="mt-4">
+                <svg viewBox="0 0 200 60" class="w-full">
+                  <polyline points="0,20 30,25 60,22 90,30 120,32 150,35 180,38 200,42" class="sparkline" stroke="var(--color-danger)"/>
+                </svg>
+              </div>
+            </div>
+            <!-- KPI 3 -->
+            <div class="bg-white border-2 border-neutral-3 rounded-2xl p-8">
+              <p class="text-text-muted text-sm mb-1">チャーンレート</p>
+              <p class="text-4xl font-extrabold text-text-strong">1.8%</p>
+              <p class="text-success font-bold mt-1">▲ -0.3pt</p>
+              <div class="mt-4">
+                <svg viewBox="0 0 200 60" class="w-full">
+                  <polyline points="0,25 30,28 60,30 90,27 120,25 150,22 180,20 200,18" class="sparkline" stroke="var(--color-success)"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           F. 画像・プロダクト系
+           ============================================================ -->
+
+      <!-- Slide 36: 全画面画像 + キャプション (Full Image) -->
+      <section style="padding: 0;">
+        <div class="slide-label" style="z-index: 20;"><span class="category" style="color: rgba(255,255,255,0.7);">画像・プロダクト系</span> <span style="color: rgba(255,255,255,0.5);">/ 全画面画像</span></div>
+        <div class="img-placeholder w-full h-full relative" style="border-radius: 0; border: none;">
+          <span class="text-3xl">1920 x 1080 画像プレースホルダー</span>
+          <!-- Gradient overlay -->
+          <div class="absolute bottom-0 left-0 right-0 h-[300px]" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
+          <div class="absolute bottom-12 left-16 text-white z-10">
+            <h3 class="text-3xl font-bold text-white mb-2">次世代オフィス空間</h3>
+            <p class="text-lg opacity-80 text-white">創造性とコラボレーションを最大化するワークプレイスデザイン</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 37: 画像 + テキスト (Image + Text) -->
+      <section>
+        <div class="slide-label"><span class="category">画像・プロダクト系</span> / 画像 + テキスト</div>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-10 h-full">
+            <div class="flex flex-col justify-center">
+              <h2>新プロダクトの特徴</h2>
+              <p class="text-lg mb-6">直感的なUIと高度なAI機能を兼ね備えた次世代プラットフォーム。あらゆるビジネスニーズに対応する柔軟性を実現しました。</p>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>ノーコードで複雑なワークフローを構築</li>
+                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>AIによるリアルタイム異常検知</li>
+                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>200以上の外部サービスと連携</li>
+                <li class="flex items-center gap-3"><span class="text-primary font-bold">✓</span>エンタープライズグレードのセキュリティ</li>
+              </ul>
+            </div>
+            <div class="img-placeholder h-full min-h-[400px]">
+              <span>プロダクト画像</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 38: 複数画像グリッド (Multi-Image Grid) -->
+      <section>
+        <div class="slide-label"><span class="category">画像・プロダクト系</span> / 複数画像グリッド</div>
+        <h2>プロダクトギャラリー</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-4 mb-4 flex-1">
+            <div>
+              <div class="img-placeholder h-[280px]"><span>ダッシュボード画面</span></div>
+              <p class="text-sm text-text-muted mt-2 text-center">ダッシュボード</p>
+            </div>
+            <div>
+              <div class="img-placeholder h-[280px]"><span>分析レポート画面</span></div>
+              <p class="text-sm text-text-muted mt-2 text-center">分析レポート</p>
+            </div>
+            <div>
+              <div class="img-placeholder h-[280px]"><span>設定画面</span></div>
+              <p class="text-sm text-text-muted mt-2 text-center">管理設定</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 flex-1">
+            <div>
+              <div class="img-placeholder h-[220px]"><span>モバイルアプリ画面</span></div>
+              <p class="text-sm text-text-muted mt-2 text-center">モバイルアプリ</p>
+            </div>
+            <div>
+              <div class="img-placeholder h-[220px]"><span>API連携画面</span></div>
+              <p class="text-sm text-text-muted mt-2 text-center">API連携</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 39: スクリーンショット + 注釈 (Screenshot + Annotations) -->
+      <section>
+        <div class="slide-label"><span class="category">画像・プロダクト系</span> / スクリーンショット + 注釈</div>
+        <h2>新機能ハイライト</h2>
+        <div class="slide-body">
+          <div class="relative flex-1 flex items-center justify-center">
+            <!-- Screenshot placeholder -->
+            <div class="img-placeholder w-[900px] h-[500px] relative">
+              <span>アプリケーション スクリーンショット</span>
+
+              <!-- Annotation 1 - top left area -->
+              <div class="annotation absolute -top-16 left-[10%] bg-accent text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg z-20">
+                AIレコメンド機能
+              </div>
+
+              <!-- Annotation 2 - top right area -->
+              <div class="annotation absolute -top-16 right-[15%] bg-accent text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg z-20">
+                リアルタイム通知
+              </div>
+
+              <!-- Annotation 3 - bottom center -->
+              <div class="annotation absolute -bottom-16 left-[35%] bg-accent text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg z-20" style="transform: rotate(180deg);">
+                <span style="display: block; transform: rotate(-180deg);">ドラッグ&ドロップ対応</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           G. 人・組織・信頼形成系
+           ============================================================ -->
+
+      <!-- Slide 40: チーム紹介 (Team) -->
+      <section>
+        <div class="slide-label"><span class="category">人・組織・信頼形成系</span> / チーム紹介</div>
+        <h2>経営チーム</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👨‍💼</div>
+              <h4 class="text-xl font-bold">田中 太郎</h4>
+              <p class="text-primary font-bold text-sm mb-2">代表取締役CEO</p>
+              <p class="text-text-muted text-sm">元大手コンサルティング会社パートナー。20年以上のテクノロジー業界経験。</p>
+            </div>
+            <div class="text-center">
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👩‍💻</div>
+              <h4 class="text-xl font-bold">鈴木 花子</h4>
+              <p class="text-primary font-bold text-sm mb-2">取締役CTO</p>
+              <p class="text-text-muted text-sm">GoogleでSr. Engineerとして10年間従事。分散システムの専門家。</p>
+            </div>
+            <div class="text-center">
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👨‍💼</div>
+              <h4 class="text-xl font-bold">佐藤 健一</h4>
+              <p class="text-primary font-bold text-sm mb-2">取締役CFO</p>
+              <p class="text-text-muted text-sm">投資銀行での15年の経験。IPO支援・M&Aアドバイザリーの実績多数。</p>
+            </div>
+            <div class="text-center">
+              <div class="w-28 h-28 bg-neutral-2 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">👩‍💼</div>
+              <h4 class="text-xl font-bold">山田 美咲</h4>
+              <p class="text-primary font-bold text-sm mb-2">執行役員COO</p>
+              <p class="text-text-muted text-sm">SaaS企業での事業立ち上げ経験。組織開発とオペレーション改善の専門家。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 41: 組織図 (Org Chart) -->
+      <section>
+        <div class="slide-label"><span class="category">人・組織・信頼形成系</span> / 組織図</div>
+        <h2>組織体制</h2>
+        <div class="slide-body">
+          <div class="flex flex-col items-center gap-0 flex-1">
+            <!-- CEO -->
+            <div class="bg-primary text-white rounded-xl px-8 py-4 text-center font-bold">
+              <p class="text-lg">代表取締役CEO</p>
+              <p class="text-sm opacity-80">田中 太郎</p>
+            </div>
+            <div class="org-line-v mx-auto"></div>
+            <!-- Horizontal connector -->
+            <div class="org-line-h" style="width: 600px;"></div>
+            <!-- VP Level -->
+            <div class="flex gap-0 relative" style="width: 720px;">
+              <div class="flex-1 flex flex-col items-center">
+                <div class="org-line-v"></div>
+                <div class="bg-primary/80 text-white rounded-xl px-6 py-3 text-center font-bold text-sm">
+                  <p>VP Engineering</p>
+                  <p class="text-xs opacity-80">鈴木 花子</p>
+                </div>
+                <div class="org-line-v"></div>
+                <div class="org-line-h" style="width: 200px;"></div>
+                <div class="flex gap-4 w-full">
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">開発チーム</p>
+                      <p class="text-xs text-text-muted">25名</p>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">インフラチーム</p>
+                      <p class="text-xs text-text-muted">8名</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="org-line-v"></div>
+                <div class="bg-primary/80 text-white rounded-xl px-6 py-3 text-center font-bold text-sm">
+                  <p>VP Sales</p>
+                  <p class="text-xs opacity-80">佐藤 健一</p>
+                </div>
+                <div class="org-line-v"></div>
+                <div class="org-line-h" style="width: 200px;"></div>
+                <div class="flex gap-4 w-full">
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">営業チーム</p>
+                      <p class="text-xs text-text-muted">18名</p>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">CSチーム</p>
+                      <p class="text-xs text-text-muted">12名</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-1 flex flex-col items-center">
+                <div class="org-line-v"></div>
+                <div class="bg-primary/80 text-white rounded-xl px-6 py-3 text-center font-bold text-sm">
+                  <p>VP Operations</p>
+                  <p class="text-xs opacity-80">山田 美咲</p>
+                </div>
+                <div class="org-line-v"></div>
+                <div class="org-line-h" style="width: 200px;"></div>
+                <div class="flex gap-4 w-full">
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">人事チーム</p>
+                      <p class="text-xs text-text-muted">6名</p>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center">
+                    <div class="org-line-v"></div>
+                    <div class="bg-primary-light rounded-lg px-4 py-2 text-center text-sm">
+                      <p class="font-bold">経理チーム</p>
+                      <p class="text-xs text-text-muted">5名</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 42: 顧客の声 (Testimonial) -->
+      <section>
+        <div class="slide-label"><span class="category">人・組織・信頼形成系</span> / 顧客の声</div>
+        <h2>お客様の声</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-8">
+            <div class="bg-neutral-1 rounded-2xl p-8">
+              <div class="text-accent mb-3">★★★★★</div>
+              <blockquote class="!bg-transparent !border-none !p-0 !shadow-none !text-base !rounded-none">
+                <p>「導入後、営業チームの生産性が40%向上しました。特にAI機能による顧客分析は、アップセルの成功率を大幅に改善してくれました。」</p>
+              </blockquote>
+              <div class="flex items-center gap-4 mt-6">
+                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center text-2xl">👨</div>
+                <div>
+                  <p class="font-bold">中村 誠</p>
+                  <p class="text-sm text-text-muted">株式会社テクノソリューションズ</p>
+                  <p class="text-sm text-text-muted">営業本部長</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-neutral-1 rounded-2xl p-8">
+              <div class="text-accent mb-3">★★★★★</div>
+              <blockquote class="!bg-transparent !border-none !p-0 !shadow-none !text-base !rounded-none">
+                <p>「データの一元管理により、部門間のサイロを完全に解消できました。経営判断のスピードが格段に上がり、競合に対する優位性を確立できています。」</p>
+              </blockquote>
+              <div class="flex items-center gap-4 mt-6">
+                <div class="w-14 h-14 bg-neutral-3 rounded-full flex items-center justify-center text-2xl">👩</div>
+                <div>
+                  <p class="font-bold">高橋 由美</p>
+                  <p class="text-sm text-text-muted">グローバル商事株式会社</p>
+                  <p class="text-sm text-text-muted">DX推進室 室長</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 43: 導入事例 / ロゴ実績 (Case Study / Logo Wall) -->
+      <section>
+        <div class="slide-label"><span class="category">人・組織・信頼形成系</span> / ロゴ実績</div>
+        <h2>導入企業</h2>
+        <div class="slide-body">
+          <!-- Logo Grid -->
+          <div class="grid grid-cols-4 gap-4 mb-8">
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company A</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company B</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company C</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company D</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company E</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company F</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company G</span></div>
+            <div class="img-placeholder h-[80px] !border-1 !rounded-lg"><span class="text-sm">Company H</span></div>
+          </div>
+          <!-- Highlighted Case Study -->
+          <div class="bg-primary-light rounded-2xl p-8 border-2 border-primary/20">
+            <div class="grid grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <p class="text-sm text-primary font-bold mb-1">導入事例ハイライト</p>
+                <h4 class="text-xl font-bold mb-2">株式会社テクノソリューションズ</h4>
+                <p class="text-text-muted text-sm mb-3"><strong>課題:</strong> 部門間データの分断による意思決定の遅延</p>
+                <p class="text-text-muted text-sm"><strong>成果:</strong> データ統合により意思決定速度が3倍に改善、年間コスト1,200万円削減</p>
+              </div>
+              <div class="flex gap-6">
+                <div class="text-center">
+                  <p class="text-3xl font-extrabold text-primary">3x</p>
+                  <p class="text-xs text-text-muted">意思決定速度</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-3xl font-extrabold text-primary">-40%</p>
+                  <p class="text-xs text-text-muted">コスト削減</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 44: パートナー (Partners) -->
+      <section>
+        <div class="slide-label"><span class="category">人・組織・信頼形成系</span> / パートナー</div>
+        <h2>パートナー企業</h2>
+        <p class="text-text-muted text-lg mb-6">100社以上の企業に導入いただいています</p>
+        <div class="slide-body">
+          <div class="grid grid-cols-4 gap-6">
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 1</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 2</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 3</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 4</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 5</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 6</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 7</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 8</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 9</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 10</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 11</span></div>
+            <div class="img-placeholder h-[100px] !rounded-xl"><span class="text-sm">Partner 12</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           H. 締め・補足系
+           ============================================================ -->
+
+      <!-- Slide 45: 結論再掲 (Summary) -->
+      <section>
+        <div class="slide-label"><span class="category">締め・補足系</span> / まとめ</div>
+        <h2>まとめ</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-8 mb-10">
+            <div class="bg-neutral-1 rounded-2xl p-8 text-center">
+              <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+              <h4 class="text-xl font-bold mb-3">市場機会</h4>
+              <p class="text-text-muted">DX市場は年率25%で成長を続けており、当社のソリューションに対する需要は拡大し続けています。</p>
+            </div>
+            <div class="bg-neutral-1 rounded-2xl p-8 text-center">
+              <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+              <h4 class="text-xl font-bold mb-3">競争優位性</h4>
+              <p class="text-text-muted">独自のAI技術と500社超の導入実績が、競合との明確な差別化要因となっています。</p>
+            </div>
+            <div class="bg-neutral-1 rounded-2xl p-8 text-center">
+              <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+              <h4 class="text-xl font-bold mb-3">成長戦略</h4>
+              <p class="text-text-muted">段階的なグローバル展開とプロダクトラインの拡充により、持続的な成長を実現します。</p>
+            </div>
+          </div>
+          <div class="bg-primary-light rounded-xl p-6 text-center">
+            <p class="text-xl font-bold text-primary">テクノロジーの力で、すべての企業の成長を加速させる。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 46: CTA (Call to Action) -->
+      <section>
+        <div class="slide-label"><span class="category">締め・補足系</span> / CTA</div>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h2 class="!text-center text-4xl">次のステップ</h2>
+          <p class="text-xl text-text-muted mb-10 max-w-[700px]">まずは無料トライアルで、プロダクトの価値を実感してください。<br>専任担当者がオンボーディングをサポートします。</p>
+          <div class="flex gap-6 mb-10">
+            <button class="bg-primary text-white font-bold px-10 py-4 rounded-xl text-lg hover:bg-primary-dark transition shadow-lg">お問い合わせ</button>
+            <button class="border-2 border-primary text-primary font-bold px-10 py-4 rounded-xl text-lg hover:bg-primary-light transition">資料ダウンロード</button>
+          </div>
+          <div class="text-text-muted text-sm space-y-1">
+            <p>📧 contact@example.com</p>
+            <p>📞 03-1234-5678</p>
+            <p>🌐 https://example.com</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 47: Thank You -->
+      <section>
+        <div class="slide-label"><span class="category">締め・補足系</span> / Thank You</div>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h1 class="text-7xl font-extrabold mb-4 !text-center">Thank You</h1>
+          <p class="text-2xl text-text-muted mb-8">ご清聴ありがとうございました</p>
+          <div class="w-16 h-1 bg-primary mb-8"></div>
+          <div class="text-text-muted space-y-2">
+            <p>📧 contact@example.com</p>
+            <p>🌐 https://example.com</p>
+            <p>📞 03-1234-5678</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 48: 連絡先 (Contact) -->
+      <section>
+        <div class="slide-label"><span class="category">締め・補足系</span> / 連絡先</div>
+        <h2>お問い合わせ</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-2 gap-12">
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-xl font-bold mb-2">株式会社サンプル</h4>
+                <p class="text-text-muted">テクノロジーで、ビジネスの未来を創造する。</p>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-4">
+                  <span class="text-xl">📍</span>
+                  <div>
+                    <p class="font-bold text-sm">住所</p>
+                    <p class="text-text-muted">〒150-0001 東京都渋谷区神宮前1-2-3 テックビル10F</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xl">📞</span>
+                  <div>
+                    <p class="font-bold text-sm">電話番号</p>
+                    <p class="text-text-muted">03-1234-5678（平日 9:00-18:00）</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xl">📧</span>
+                  <div>
+                    <p class="font-bold text-sm">メール</p>
+                    <p class="text-text-muted">contact@example.com</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xl">🌐</span>
+                  <div>
+                    <p class="font-bold text-sm">ウェブサイト</p>
+                    <p class="text-text-muted">https://example.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-8">
+              <div class="img-placeholder w-[250px] h-[250px] !rounded-2xl">
+                <span>QRコード</span>
+              </div>
+              <div class="flex gap-6">
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">𝕏</div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">in</div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">📘</div>
+                <div class="w-12 h-12 bg-neutral-2 rounded-full flex items-center justify-center text-xl">▶</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 49: Appendix 表紙 -->
+      <section>
+        <div class="slide-label"><span class="category">締め・補足系</span> / Appendix 表紙</div>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <p class="section-number !text-[8em]">A</p>
+          <h1 class="text-6xl font-extrabold mb-4 !text-center">Appendix</h1>
+          <p class="text-2xl text-text-muted">補足資料</p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           装飾コンポーネント
+           ============================================================ -->
+
+      <!-- Slide 50: パネルデザイン (Panel Showcase) -->
+      <section>
+        <div class="slide-label"><span class="category">装飾コンポーネント</span> / パネルデザイン</div>
+        <h2>パネルデザイン</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-6">
+            <!-- 1. Basic Panel -->
+            <div class="bg-white border border-neutral-3 rounded-xl p-6 shadow-sm">
+              <h4 class="font-bold mb-2">Basic Panel</h4>
+              <p class="text-text-muted text-sm">白背景にボーダーとシャドウを組み合わせた基本パネル。汎用的に使えます。</p>
+            </div>
+            <!-- 2. Primary Panel -->
+            <div class="bg-primary-light rounded-xl p-6">
+              <h4 class="font-bold text-primary mb-2">Primary Panel</h4>
+              <p class="text-text-muted text-sm">プライマリカラーの薄い背景。重要な情報を目立たせる際に使います。</p>
+            </div>
+            <!-- 3. Accent Panel -->
+            <div class="bg-accent-light rounded-xl p-6">
+              <h4 class="font-bold text-accent mb-2">Accent Panel</h4>
+              <p class="text-text-muted text-sm">アクセントカラーの背景。注意喚起や補足情報に適しています。</p>
+            </div>
+            <!-- 4. Border-left Panel -->
+            <div class="bg-white border-l-4 border-primary rounded-r-xl p-6 shadow-sm">
+              <h4 class="font-bold mb-2">Border Left Panel</h4>
+              <p class="text-text-muted text-sm">左ボーダーで強調したパネル。引用やハイライトに最適です。</p>
+            </div>
+            <!-- 5. Gradient Panel -->
+            <div class="rounded-xl p-6 text-white" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
+              <h4 class="font-bold mb-2 text-white">Gradient Panel</h4>
+              <p class="text-sm opacity-90">グラデーション背景のパネル。CTAやハイライトセクションに使用します。</p>
+            </div>
+            <!-- 6. Dark Panel -->
+            <div class="bg-gray-800 rounded-xl p-6 text-white">
+              <h4 class="font-bold mb-2 text-white">Dark Panel</h4>
+              <p class="text-sm opacity-80">ダーク背景のパネル。コントラストを出したい場面やコード表示に。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 51: カード・タグ・バッジ (Cards, Tags, Badges) -->
+      <section>
+        <div class="slide-label"><span class="category">装飾コンポーネント</span> / カード・タグ・バッジ</div>
+        <h2>装飾コンポーネント</h2>
+        <div class="slide-body">
+          <!-- Cards -->
+          <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="bg-white border border-neutral-3 rounded-2xl p-6 shadow-sm">
+              <div class="text-3xl mb-3">📊</div>
+              <h4 class="font-bold text-lg mb-2">Basic Card</h4>
+              <p class="text-text-muted text-sm">シンプルなカードコンポーネント。アイコン、タイトル、説明文の組み合わせ。</p>
+            </div>
+            <div class="bg-white border-2 border-primary rounded-2xl p-6 shadow-md ring-4 ring-primary/10">
+              <div class="text-3xl mb-3">⭐</div>
+              <h4 class="font-bold text-lg text-primary mb-2">Highlighted Card</h4>
+              <p class="text-text-muted text-sm">強調されたカード。おすすめプランや重要な項目に使用します。</p>
+            </div>
+            <div class="bg-gray-800 rounded-2xl p-6 text-white">
+              <div class="text-3xl mb-3">🔒</div>
+              <h4 class="font-bold text-lg mb-2 text-white">Dark Card</h4>
+              <p class="text-sm opacity-80">ダークカード。プレミアム感やコントラストを出したい場合に。</p>
+            </div>
+          </div>
+          <!-- Badges & Tags -->
+          <div class="mb-6">
+            <h4 class="font-bold mb-3">バッジ / タグ</h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-primary text-white text-sm font-bold px-4 py-1.5 rounded-full">Primary</span>
+              <span class="bg-secondary text-white text-sm font-bold px-4 py-1.5 rounded-full">Secondary</span>
+              <span class="bg-accent text-white text-sm font-bold px-4 py-1.5 rounded-full">Accent</span>
+              <span class="bg-success text-white text-sm font-bold px-4 py-1.5 rounded-full">Success</span>
+              <span class="bg-danger text-white text-sm font-bold px-4 py-1.5 rounded-full">Danger</span>
+              <span class="bg-primary-light text-primary text-sm font-bold px-4 py-1.5 rounded-full">Primary Light</span>
+              <span class="bg-secondary-light text-secondary text-sm font-bold px-4 py-1.5 rounded-full">Secondary Light</span>
+              <span class="bg-accent-light text-accent text-sm font-bold px-4 py-1.5 rounded-full">Accent Light</span>
+              <span class="bg-neutral-2 text-text-muted text-sm font-bold px-4 py-1.5 rounded-full">Neutral</span>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <div>
+            <h4 class="font-bold mb-3">ボタン</h4>
+            <div class="flex flex-wrap gap-4">
+              <button class="bg-primary text-white font-bold px-8 py-3 rounded-xl hover:bg-primary-dark transition">Primary Button</button>
+              <button class="border-2 border-primary text-primary font-bold px-8 py-3 rounded-xl hover:bg-primary-light transition">Outline Button</button>
+              <button class="bg-accent text-white font-bold px-8 py-3 rounded-xl hover:opacity-90 transition">Accent Button</button>
+              <button class="bg-neutral-2 text-text-base font-bold px-8 py-3 rounded-xl hover:bg-neutral-3 transition">Neutral Button</button>
+              <button class="bg-success text-white font-bold px-8 py-3 rounded-xl hover:opacity-90 transition">Success Button</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+    });
+  </script>
+</body>
+</html>
