@@ -11,6 +11,7 @@
 - Only use `style=""` for values that Tailwind cannot express (e.g., `width` percentages for chart bars, `conic-gradient`, specific `clip-path` values).
 - For opacity variants, use `bg-primary opacity-70` instead of `bg-primary/70` (CSS variable colors do not support the `/opacity` modifier).
 - Never use `!important` in CSS. Solve specificity issues with more specific selectors.
+- Never use `shadow-*` classes (e.g., `shadow-sm`, `shadow-md`, `shadow-lg`). PDF変換時に不自然な影が表示される原因になる。立体感が必要な場合は `border` で代替する。
 
 ---
 
