@@ -5,9 +5,9 @@
   <title>Slide Layout Patterns</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
-  <link rel="stylesheet" href="css/theme-light.css">
+  <link rel="stylesheet" href="../css/theme-light.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -2830,9 +2830,8 @@
       slideNumber: true,
       controls: true,
       progress: true,
-    }).then(() => {
-      lucide.createIcons();
     });
+    lucide.createIcons();
   </script>
 </body>
 </html>
