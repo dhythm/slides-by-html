@@ -5,17 +5,12 @@
 - follow TDD, follow t-wada method
 - read the latest code when starting a new task, because it might be updated independently of your work
 
-### Naming Rules
+### Styling Rules
 
-- Variable names, function names, and database column names should be written in English.
-- Romanized Japanese (romaji) should be avoided and only used when absolutely necessary.
-
-Example:
-- Good: `last_name_kana`
-- Bad: `sei_kana`
-
-- Use plural names only for arrays.
-- Use singular names for non-array values.
+- Use Tailwind CSS utility classes as the primary styling method. Avoid inline `style=""` attributes.
+- Only use `style=""` for values that Tailwind cannot express (e.g., `width` percentages for chart bars, `conic-gradient`, specific `clip-path` values).
+- For opacity variants, use `bg-primary opacity-70` instead of `bg-primary/70` (CSS variable colors do not support the `/opacity` modifier).
+- Never use `!important` in CSS. Solve specificity issues with more specific selectors.
 
 ---
 
@@ -31,7 +26,7 @@ Example:
 ### 2. Subagent Strategy
 
 - Use subagents liberally to keep main context window clean
-fad research, exploration, and parallel analysis to subagents
+  fad research, exploration, and parallel analysis to subagents
 - For complex problems, throw more compute at it via subagents
 - One task per subagent for focused execution
 
@@ -83,9 +78,3 @@ fad research, exploration, and parallel analysis to subagents
 - Minimal Impact: Changes should only touch what's necessary. Avoid introducing bugs.
 
 ---
-
-## Development Environment
-
-- use `pnpm` as a package manager
-- use `vitest` for testing
-
