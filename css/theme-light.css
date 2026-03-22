@@ -56,7 +56,9 @@ body {
     0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
-.reveal .slides section {
+.reveal .slides section,
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
   padding: 60px;
   box-sizing: border-box;
   height: 100%;
