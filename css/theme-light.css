@@ -82,6 +82,13 @@ body {
   text-align: left;
 }
 
+.reveal .text-center h1,
+.reveal .text-center h2,
+.reveal .text-center h3,
+.reveal .text-center h4 {
+  text-align: center;
+}
+
 .reveal .text-white h1,
 .reveal .text-white h2,
 .reveal .text-white h3,
