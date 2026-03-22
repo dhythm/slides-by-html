@@ -97,6 +97,21 @@ open slides/my-presentation.html
 
 ### PDF 出力
 
+#### コーディングエージェントに依頼
+
+スライド作成後、そのまま PDF 出力も依頼できます。
+
+```
+slides/my-presentation.html をPDFに変換してください
+```
+
+```
+作成したスライドを npx decktape で PDF 出力してください。
+サイズは 1920x1080 で、output/my-presentation.pdf に保存してください。
+```
+
+エージェントがローカルサーバーの起動から DeckTape の実行まで自動で行います。
+
 #### npx（エンジニア向け）
 
 Node.js がインストールされている環境では npx で直接実行できます。
