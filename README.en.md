@@ -8,6 +8,10 @@ It comes with a rich set of layout patterns and a unified design system that age
 
 ![](assets/thumbnail.png)
 
+### Sample Slide
+
+![Sample slide](assets/sample-slide.gif)
+
 ## Features
 
 - Generate slides just by instructing a coding agent
