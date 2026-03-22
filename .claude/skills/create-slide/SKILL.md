@@ -12,7 +12,7 @@ You are a presentation slide builder. Generate a complete Reveal.js HTML slide d
 
 Before writing any code, read the following files to understand the project's conventions:
 
-1. **Layout patterns reference**: `layouts/layout-patterns.html` — contains 68 slide layout examples organized by category. Read specific sections relevant to the user's request rather than the entire file.
+1. **Layout patterns reference**: `layouts/layout-patterns.html` — slide layout examples organized by category. Read specific sections relevant to the user's request rather than the entire file.
 2. **Theme CSS**: `css/theme-light.css` — the color system and component styles.
 
 ## Step 2: Plan the slide structure
@@ -70,6 +70,7 @@ Every slide deck MUST use this exact boilerplate:
             'neutral-5': 'var(--color-neutral-5)',
             success: { DEFAULT: 'var(--color-success)', light: 'var(--color-success-light)' },
             danger: { DEFAULT: 'var(--color-danger)', light: 'var(--color-danger-light)' },
+            warning: { DEFAULT: 'var(--color-warning)', light: 'var(--color-warning-light)' },
           }
         }
       }
@@ -88,6 +89,7 @@ Every slide deck MUST use this exact boilerplate:
       width: 1920,
       height: 1080,
       margin: 0,
+      center: false,
       hash: true,
       slideNumber: true,
       controls: true,
