@@ -37,7 +37,11 @@ body {
 }
 
 .reveal .slide-background-content {
-  background: var(--color-white);
+  background-color: var(--color-white);
+}
+
+.hero-gradient .slide-background-content {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 }
 
 /* --- Reveal.js Base Overrides --- */
