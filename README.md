@@ -17,6 +17,7 @@
 - コーディングエージェントへの指示だけでスライド生成
 - 多彩なレイアウトパターン（データ可視化、比較、タイムライン、組織図など）
 - 統一されたカラーシステムとタイポグラフィ
+- カスタムテーマ対応（企業カラー、背景テンプレート）
 - Reveal.js によるブラウザ上でのプレゼンテーション
 - DeckTape による PDF 出力
 
@@ -34,7 +35,11 @@
 ```
 .
 ├── css/
-│   └── theme-light.css          # カラーシステム・テーマ定義
+│   ├── theme-light.css          # カラーシステム・テーマ定義
+│   └── custom/                  # カスタムテーマ（企業カラー等）
+│       └── your-company.css
+├── images/
+│   └── templates/               # 背景テンプレート画像
 ├── layouts/
 │   └── layout-patterns.html     # 68種のレイアウトパターン集
 ├── slides/                      # 生成されたスライド
@@ -156,6 +161,40 @@ npx decktape reveal \
 | 本文テキスト | `--color-text`         | `text-text-base`                 |
 | 補助テキスト | `--color-text-muted`   | `text-text-muted`                |
 | 背景/区切り  | `--color-neutral-1〜5` | `bg-neutral-1` 〜 `bg-neutral-5` |
+
+## カスタムテーマ
+
+企業ブランドに合わせてカラーや背景テンプレートをカスタマイズできます。
+
+### セットアップ
+
+1. `css/custom/example-corporate.css` をコピーしてリネーム
+2. カラー変数を編集（プライマリ、セカンダリ、アクセント）
+3. 背景画像を `images/templates/` に配置（1920x1080px、PNG推奨）
+4. スライドHTMLでカスタムCSSを読み込み
+
+```html
+<link rel="stylesheet" href="../css/theme-light.css">
+<link rel="stylesheet" href="../css/custom/your-company.css">
+```
+
+> **注意**: `example-` で始まるファイル名はサンプル用としてリポジトリに含まれます。
+> 独自のテーマや画像には `example-` 以外の名前を使用してください（例: `my-company.css`）。
+
+### 背景テンプレートの出し分け
+
+| スライド種別 | 指定方法 | 用途 |
+|-------------|---------|------|
+| カバースライド | `<section data-state="cover">` | 表紙用の背景画像 |
+| 通常スライド | `<section>` | コンテンツ用の背景画像 |
+| グラデーション | `<section data-state="hero-gradient">` | 背景画像なし、グラデーションのみ |
+
+### プロンプト例
+
+```
+css/custom/example-corporate.css を使って、
+会社紹介スライドを作成してください。
+```
 
 ## レイアウトパターン一覧
 

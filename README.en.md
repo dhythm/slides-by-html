@@ -17,6 +17,7 @@ It comes with a rich set of layout patterns and a unified design system that age
 - Generate slides just by instructing a coding agent
 - Rich layout patterns (data visualization, comparison, timeline, org chart, etc.)
 - Unified color system and typography
+- Custom theme support (corporate colors, background templates)
 - Browser-based presentations with Reveal.js
 - PDF export via DeckTape
 
@@ -34,7 +35,11 @@ It comes with a rich set of layout patterns and a unified design system that age
 ```
 .
 ├── css/
-│   └── theme-light.css          # Color system & theme definitions
+│   ├── theme-light.css          # Color system & theme definitions
+│   └── custom/                  # Custom themes (corporate colors, etc.)
+│       └── your-company.css
+├── images/
+│   └── templates/               # Background template images
 ├── layouts/
 │   └── layout-patterns.html     # 68 layout patterns
 ├── slides/                      # Generated slides
@@ -157,6 +162,40 @@ Color palette defined in `css/theme-light.css`:
 | Body text      | `--color-text`         | `text-text-base`                 |
 | Muted text     | `--color-text-muted`   | `text-text-muted`                |
 | Background     | `--color-neutral-1~5`  | `bg-neutral-1` ~ `bg-neutral-5`  |
+
+## Custom Themes
+
+Customize colors and background templates to match your corporate branding.
+
+### Setup
+
+1. Copy and rename `css/custom/example-corporate.css`
+2. Edit color variables (primary, secondary, accent)
+3. Place background images in `images/templates/` (1920x1080px, PNG recommended)
+4. Link the custom CSS in your slide HTML
+
+```html
+<link rel="stylesheet" href="../css/theme-light.css">
+<link rel="stylesheet" href="../css/custom/your-company.css">
+```
+
+> **Note**: Files starting with `example-` are samples included in the repository.
+> Use different names for your own themes and images (e.g., `my-company.css`).
+
+### Background Template Patterns
+
+| Slide Type | Specification | Purpose |
+|------------|---------------|---------|
+| Cover slide | `<section data-state="cover">` | Background for title slides |
+| Normal slide | `<section>` | Background for content slides |
+| Gradient | `<section data-state="hero-gradient">` | No background image, gradient only |
+
+### Prompt Example
+
+```
+Create a company introduction slide deck using
+css/custom/example-corporate.css as the theme.
+```
 
 ## Layout Patterns
 
