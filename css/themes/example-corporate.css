@@ -1,0 +1,76 @@
+/* ============================================================
+   Example Corporate Theme
+
+   This file demonstrates how to customize colors and add
+   a background template image for corporate branding.
+
+   Usage:
+   1. Copy this file and rename it (e.g., your-company.css)
+   2. Update the color values to match your brand
+   3. Place your background template image in images/templates/
+   4. Update the background-image URL below
+   5. Link this CSS after theme-light.css in your slide HTML:
+      <link rel="stylesheet" href="../css/themes/your-company.css">
+   ============================================================ */
+
+/* --- Custom Color Overrides --- */
+:root {
+  /* Primary: Main brand color (buttons, links, accents) */
+  --color-primary: #0066cc;
+  --color-primary-light: #e6f0fa;
+  --color-primary-dark: #004d99;
+
+  /* Secondary: Supporting brand color */
+  --color-secondary: #6b21a8;
+  --color-secondary-light: #f3e8ff;
+
+  /* Accent: Highlight color for calls-to-action */
+  --color-accent: #ea580c;
+  --color-accent-light: #fff7ed;
+}
+
+/* --- Background Template Images ---
+
+   Two background patterns are supported:
+   1. Cover slides: For title/hero slides (data-state="cover")
+   2. Normal slides: For all other content slides
+
+   Image requirements:
+   - Size: 1920x1080px (16:9 aspect ratio)
+   - Format: PNG with transparency recommended
+   - Keep content areas clear for slide text
+
+   Usage in HTML:
+   - Cover slide:  <section data-state="cover">
+   - Normal slide: <section> (no special attribute needed)
+   ------------------------------------------------------------ */
+
+/* Normal slides: default background template */
+.reveal .slides section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../../images/templates/example-corporate-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cover slides: different background template */
+.reveal .slides section[data-state="cover"]::after {
+  background-image: url('../../images/templates/example-corporate-cover.png');
+}
+
+/* Hero gradient slides: hide background image, show gradient instead */
+.reveal .slides section[data-state="hero-gradient"]::after {
+  display: none;
+}
+
+/* --- Hero Gradient Override (optional) ---
+   Customize the gradient for hero/cover slides */
+
+.hero-gradient .slide-background-content {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
