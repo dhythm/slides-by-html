@@ -14,7 +14,7 @@ Before writing any code, read the following files to understand the project's co
 
 1. **Layout patterns reference**: `layouts/layout-patterns.html` — slide layout examples organized by category. Read specific sections relevant to the user's request rather than the entire file.
 2. **Theme CSS**: `css/theme-light.css` — the color system and component styles.
-3. **Custom themes** (optional): `css/themes/` — custom theme files for corporate branding. Read the example file `css/themes/example-corporate.css` if the user requests custom colors or background templates.
+3. **Custom themes** (optional): `css/custom/` — custom theme files for corporate branding. Read the example file `css/custom/example-corporate.css` if the user requests custom colors or background templates.
 
 ## Step 2: Plan the slide structure
 
@@ -52,7 +52,7 @@ Every slide deck MUST use this exact boilerplate:
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
   <link rel="stylesheet" href="../css/theme-light.css">
   <!-- Optional: Custom theme for corporate branding -->
-  <!-- <link rel="stylesheet" href="../css/themes/your-theme.css"> -->
+  <!-- <link rel="stylesheet" href="../css/custom/your-theme.css"> -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script>

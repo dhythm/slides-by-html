@@ -10,7 +10,7 @@
    3. Place your background template image in images/templates/
    4. Update the background-image URL below
    5. Link this CSS after theme-light.css in your slide HTML:
-      <link rel="stylesheet" href="../css/themes/your-company.css">
+      <link rel="stylesheet" href="../css/custom/your-company.css">
    ============================================================ */
 
 /* --- Custom Color Overrides --- */
