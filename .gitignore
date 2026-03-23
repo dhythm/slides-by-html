@@ -4,7 +4,9 @@
 /tmp/
 /tasks/
 /output/
-/slides/
+
+/slides/*
+!/slides/example-*
 
 # Custom themes (keep example-* as samples)
 /css/custom/*
