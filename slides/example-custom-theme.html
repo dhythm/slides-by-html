@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>カスタムテーマ テスト</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css">
+  <link rel="stylesheet" href="../css/theme-light.css">
+  <link rel="stylesheet" href="../css/custom/example-corporate.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: 'var(--color-primary)', light: 'var(--color-primary-light)', dark: 'var(--color-primary-dark)' },
+            secondary: { DEFAULT: 'var(--color-secondary)', light: 'var(--color-secondary-light)' },
+            accent: { DEFAULT: 'var(--color-accent)', light: 'var(--color-accent-light)' },
+            'text-strong': 'var(--color-text-strong)',
+            'text-base': 'var(--color-text)',
+            'text-muted': 'var(--color-text-muted)',
+            'neutral-1': 'var(--color-neutral-1)',
+            'neutral-2': 'var(--color-neutral-2)',
+            'neutral-3': 'var(--color-neutral-3)',
+            'neutral-4': 'var(--color-neutral-4)',
+            'neutral-5': 'var(--color-neutral-5)',
+            success: { DEFAULT: 'var(--color-success)', light: 'var(--color-success-light)' },
+            danger: { DEFAULT: 'var(--color-danger)', light: 'var(--color-danger-light)' },
+            warning: { DEFAULT: 'var(--color-warning)', light: 'var(--color-warning-light)' },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: カバースライド（data-state="cover"） -->
+      <section data-state="cover">
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <h1 class="text-6xl font-extrabold mb-6">カスタムテーマ テスト</h1>
+          <p class="text-2xl text-text-muted mb-12">カバースライド用の背景画像が表示されます</p>
+          <div class="flex gap-6">
+            <div class="bg-primary text-white px-8 py-4 rounded-xl text-xl font-bold">Primary</div>
+            <div class="bg-secondary text-white px-8 py-4 rounded-xl text-xl font-bold">Secondary</div>
+            <div class="bg-accent text-white px-8 py-4 rounded-xl text-xl font-bold">Accent</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: 通常スライド -->
+      <section>
+        <h2>通常スライド</h2>
+        <div class="slide-body">
+          <div class="grid grid-cols-3 gap-8">
+            <div class="bg-primary-light p-8 rounded-2xl text-center">
+              <i data-lucide="palette" class="w-16 h-16 text-primary mx-auto mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">カスタムカラー</h3>
+              <p class="text-text-muted">プライマリ、セカンダリ、アクセントカラーをカスタマイズ可能</p>
+            </div>
+            <div class="bg-secondary-light p-8 rounded-2xl text-center">
+              <i data-lucide="image" class="w-16 h-16 text-secondary mx-auto mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">背景テンプレート</h3>
+              <p class="text-text-muted">企業フォーマットの背景画像を全スライドに適用</p>
+            </div>
+            <div class="bg-accent-light p-8 rounded-2xl text-center">
+              <i data-lucide="layers" class="w-16 h-16 text-accent mx-auto mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">出し分け対応</h3>
+              <p class="text-text-muted">カバーと通常スライドで異なる背景を使用可能</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: ヒーローグラデーション（従来互換） -->
+      <section data-state="hero-gradient">
+        <div class="flex flex-col items-center justify-center h-full text-center text-white">
+          <h1 class="text-6xl font-extrabold mb-6 text-white">ヒーローグラデーション</h1>
+          <p class="text-2xl opacity-80 text-white">data-state="hero-gradient" では背景画像は表示されません</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: カラーパレット確認 -->
+      <section>
+        <h2>カラーパレット確認</h2>
+        <div class="slide-body">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-32 h-16 bg-primary rounded-lg"></div>
+              <div class="w-32 h-16 bg-primary-light rounded-lg"></div>
+              <div class="w-32 h-16 bg-primary-dark rounded-lg"></div>
+              <span class="text-xl font-bold">Primary</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-32 h-16 bg-secondary rounded-lg"></div>
+              <div class="w-32 h-16 bg-secondary-light rounded-lg"></div>
+              <span class="text-xl font-bold">Secondary</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-32 h-16 bg-accent rounded-lg"></div>
+              <div class="w-32 h-16 bg-accent-light rounded-lg"></div>
+              <span class="text-xl font-bold">Accent</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      display: "flex",
+    });
+    lucide.createIcons();
+  </script>
+</body>
+</html>
